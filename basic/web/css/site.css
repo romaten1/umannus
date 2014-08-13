@@ -2,6 +2,9 @@ html,
 body {
     height: 100%;
 }
+body {
+    margin-top: 50px;
+}
 
 .wrap {
     min-height: 100%;
@@ -11,7 +14,7 @@ body {
 }
 
 .wrap > .container {
-    padding: 70px 15px 20px;
+    padding: 10px 15px 20px;
 }
 
 .footer {

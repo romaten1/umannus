@@ -26,7 +26,7 @@ AppAsset::register($this);
     <div class="wrap">
         <?php
             NavBar::begin([
-                'brandLabel' => 'My Company',
+                'brandLabel' => 'Репозиторій робіт Уманського НУС',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
@@ -35,14 +35,32 @@ AppAsset::register($this);
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
-                    ['label' => 'Home', 'url' => ['/site/index']],
-                    ['label' => 'About', 'url' => ['/site/about']],
-                    ['label' => 'Contact', 'url' => ['/site/contact']],
+                    ['label' => 'Головна', 'url' => ['/site/index']],
+                    ['label' => 'Про нас', 'url' => ['/site/about']],
+                    ['label' => 'Контакти', 'url' => ['/site/contact']],
+                    ['label' => 'Gii', 'url' => ['/gii']],
                     Yii::$app->user->isGuest ?
-                        ['label' => 'Login', 'url' => ['/site/login']] :
-                        ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+                        ['label' => 'Вхід', 'url' => ['/site/login']] :
+                        ['label' => 'Вихід (' . Yii::$app->user->identity->username . ')',
                             'url' => ['/site/logout'],
                             'linkOptions' => ['data-method' => 'post']],
+                ],
+            ]);
+            NavBar::end();
+        ?>
+        <?php
+            NavBar::begin([
+                'options' => [
+                    'class' => 'navbar-static-top',
+                ],
+            ]);
+            echo Nav::widget([
+                'options' => ['class' => 'navbar-nav navbar-left'],
+                'items' => [
+                    ['label' => 'Кафедри', 'url' => ['/cafedra']],
+                    ['label' => 'Факультети', 'url' => ['/faculty']],
+                    ['label' => 'Викладачі', 'url' => ['/prepod']],
+                    ['label' => 'Предмети', 'url' => ['/subject']],
                 ],
             ]);
             NavBar::end();
@@ -51,6 +69,9 @@ AppAsset::register($this);
         <div class="container">
             <?= Breadcrumbs::widget([
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                'homeLink' => [
+                    'label' => 'Головна',  // required
+                    'url' => '/', ],
             ]) ?>
             <?= $content ?>
         </div>
@@ -58,7 +79,7 @@ AppAsset::register($this);
 
     <footer class="footer">
         <div class="container">
-            <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+            <p class="pull-left">&copy; Репозиторій робіт Уманського НУС <?= date('Y') ?></p>
             <p class="pull-right"><?= Yii::powered() ?></p>
         </div>
     </footer>
