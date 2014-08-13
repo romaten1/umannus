@@ -32,11 +32,13 @@ class CafedraController extends Controller
      */
     public function actionIndex()
     {
+        $model = new Cafedra();
         $searchModel = new CafedraSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             //'searchModel' => $searchModel,
+            'model' => $model,
             'dataProvider' => $dataProvider,
         ]);
     }

@@ -2,6 +2,7 @@
 
 namespace app\modules\cafedra\models;
 
+use app\helpers\TransliterateHelper;
 use Yii;
 
 /**
@@ -45,14 +46,22 @@ class Cafedra extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'faculty_id' => Yii::t('app', 'Faculty ID'),
-            'title' => Yii::t('app', 'Title'),
-            'title_en' => Yii::t('app', 'Title En'),
-            'description' => Yii::t('app', 'Description'),
-            'image_id' => Yii::t('app', 'Image ID'),
-            'active' => Yii::t('app', 'Active'),
-            'visited' => Yii::t('app', 'Visited'),
+            'id' => Yii::t('app', 'ID кафедри'),
+            'faculty_id' => Yii::t('app', 'Факультет'),
+            'title' => Yii::t('app', 'Назва'),
+            'title_en' => Yii::t('app', 'Назва англійською'),
+            'description' => Yii::t('app', 'Коротка інформація'),
+            'image_id' => Yii::t('app', 'ID малюнку'),
+            'active' => Yii::t('app', 'Активна'),
+            'visited' => Yii::t('app', 'Відвідувань'),
         ];
+    }
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            $this->title_en =  TransliterateHelper::cyrillicToLatin($this->title);
+            return true;
+        }
+        return false;
     }
 }

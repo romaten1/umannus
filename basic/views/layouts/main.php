@@ -40,6 +40,8 @@ AppAsset::register($this);
                     ['label' => 'Контакти', 'url' => ['/site/contact']],
                     ['label' => 'Gii', 'url' => ['/gii']],
                     Yii::$app->user->isGuest ?
+                        ['label' => 'Sign Up', 'url' => ['/site/signup']] : "",
+                    Yii::$app->user->isGuest ?
                         ['label' => 'Вхід', 'url' => ['/site/login']] :
                         ['label' => 'Вихід (' . Yii::$app->user->identity->username . ')',
                             'url' => ['/site/logout'],

@@ -4,8 +4,51 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e3378ab65ff55f117593cf561bfc0a9c",
+    "hash": "18cc7200a98cd2794fdfc136a7662a1f",
     "packages": [
+        {
+            "name": "2amigos/yii2-tinymce-widget",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/2amigos/yii2-tinymce-widget.git",
+                "reference": "542ceac58ebfd63632be79712cc253fe8edba80b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/2amigos/yii2-tinymce-widget/zipball/542ceac58ebfd63632be79712cc253fe8edba80b",
+                "reference": "542ceac58ebfd63632be79712cc253fe8edba80b",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "dosamigos\\tinymce\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Antonio Ramirez",
+                    "email": "ramirez.cobos@gmail.com",
+                    "homepage": "http://www.ramirezcobos.com"
+                }
+            ],
+            "description": "TinyMCE widget for Yii2.",
+            "keywords": [
+                "extension",
+                "tinymce",
+                "widget",
+                "yii"
+            ],
+            "time": "2014-04-02 09:10:13"
+        },
         {
             "name": "cebe/markdown",
             "version": "0.9.x-dev",
@@ -164,12 +207,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/bootstrap-fileinput.git",
-                "reference": "dadd7ad8170de9ca9e0433fbcd368170e4177404"
+                "reference": "b7c304e96024981a3380aa2ece5cb43e2a7d9356"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/dadd7ad8170de9ca9e0433fbcd368170e4177404",
-                "reference": "dadd7ad8170de9ca9e0433fbcd368170e4177404",
+                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/b7c304e96024981a3380aa2ece5cb43e2a7d9356",
+                "reference": "b7c304e96024981a3380aa2ece5cb43e2a7d9356",
                 "shasum": ""
             },
             "type": "library",
@@ -200,7 +243,7 @@
                 "preview",
                 "upload"
             ],
-            "time": "2014-08-12 02:08:23"
+            "time": "2014-08-13 00:13:51"
         },
         {
             "name": "kartik-v/bootstrap-star-rating",
@@ -535,6 +578,147 @@
             "time": "2014-08-08 19:23:55"
         },
         {
+            "name": "vova07/yii2-control-widget",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vova07/yii2-control-widget.git",
+                "reference": "505a3a374cd9c742dae9986dd786bf0b64eca21e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vova07/yii2-control-widget/zipball/505a3a374cd9c742dae9986dd786bf0b64eca21e",
+                "reference": "505a3a374cd9c742dae9986dd786bf0b64eca21e",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "vova07\\control\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Crudu Vasile",
+                    "email": "bazillio07@yandex.ru"
+                }
+            ],
+            "description": "The control widget for Yii framework backend.",
+            "keywords": [
+                "control",
+                "widget",
+                "yii 2",
+                "yii2"
+            ],
+            "time": "2014-05-27 10:36:02"
+        },
+        {
+            "name": "vova07/yii2-rbac-module",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vova07/yii2-rbac-module.git",
+                "reference": "11dc36ee0ad97f3265c52d938d57f5d57e9ffa1f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vova07/yii2-rbac-module/zipball/11dc36ee0ad97f3265c52d938d57f5d57e9ffa1f",
+                "reference": "11dc36ee0ad97f3265c52d938d57f5d57e9ffa1f",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "vova07\\rbac\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Crudu Vasile",
+                    "email": "bazillio07@yandex.ru"
+                }
+            ],
+            "description": "The RBAC module for Yii framework.",
+            "keywords": [
+                "management",
+                "module",
+                "modules",
+                "rbac",
+                "yii 2",
+                "yii2"
+            ],
+            "time": "2014-07-11 08:15:43"
+        },
+        {
+            "name": "vova07/yii2-users-module",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vova07/yii2-users-module.git",
+                "reference": "e26d7597cb0b6fce1aad499c5e11cd0e16bcd28a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vova07/yii2-users-module/zipball/e26d7597cb0b6fce1aad499c5e11cd0e16bcd28a",
+                "reference": "e26d7597cb0b6fce1aad499c5e11cd0e16bcd28a",
+                "shasum": ""
+            },
+            "require": {
+                "vova07/yii2-control-widget": "*",
+                "vova07/yii2-rbac-module": "*",
+                "yiisoft/yii2": "*",
+                "yiisoft/yii2-bootstrap": "*",
+                "yiisoft/yii2-swiftmailer": "*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "bootstrap": "vova07\\users\\Bootstrap"
+            },
+            "autoload": {
+                "psr-4": {
+                    "vova07\\users\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Crudu Vasile",
+                    "email": "bazillio07@yandex.ru"
+                }
+            ],
+            "description": "The users module for Yii framework.",
+            "keywords": [
+                "Users",
+                "account",
+                "management",
+                "module",
+                "modules",
+                "profile",
+                "profiles",
+                "user",
+                "yii 2",
+                "yii2"
+            ],
+            "time": "2014-08-04 19:20:47"
+        },
+        {
             "name": "yiisoft/jquery",
             "version": "2.1.1",
             "source": {
@@ -589,12 +773,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "e60791056b3c1ce9ec9b8ea7b2abff5fa3fcfc4e"
+                "reference": "40923dfbadc16aff6527e08931a27ea8f1d09ee4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/e60791056b3c1ce9ec9b8ea7b2abff5fa3fcfc4e",
-                "reference": "e60791056b3c1ce9ec9b8ea7b2abff5fa3fcfc4e",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/40923dfbadc16aff6527e08931a27ea8f1d09ee4",
+                "reference": "40923dfbadc16aff6527e08931a27ea8f1d09ee4",
                 "shasum": ""
             },
             "require": {
@@ -662,7 +846,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2014-08-12 16:13:49"
+            "time": "2014-08-13 02:48:41"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -670,12 +854,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-bootstrap.git",
-                "reference": "b95d716f49c1692a3824c3ffa021e878dfc3db11"
+                "reference": "2a5f1b92b45925c9a56ccb938f15fe632cad240b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/b95d716f49c1692a3824c3ffa021e878dfc3db11",
-                "reference": "b95d716f49c1692a3824c3ffa021e878dfc3db11",
+                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/2a5f1b92b45925c9a56ccb938f15fe632cad240b",
+                "reference": "2a5f1b92b45925c9a56ccb938f15fe632cad240b",
                 "shasum": ""
             },
             "require": {
@@ -703,7 +887,7 @@
                 "bootstrap",
                 "yii2"
             ],
-            "time": "2014-08-08 09:53:39"
+            "time": "2014-08-13 08:58:37"
         },
         {
             "name": "yiisoft/yii2-composer",

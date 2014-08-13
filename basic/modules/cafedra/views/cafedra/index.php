@@ -26,8 +26,8 @@ $this->params['breadcrumbs'][] = $this->title;
         
         'itemOptions' => ['class' => 'item'],
         'itemView' => function ($model, $key, $index, $widget) {
-            return Html::a(Html::encode('Кафедра '.$model->title), ['view', 'id' => $model->id]);
+            return '<p>'.Html::a(Html::encode('Кафедра '.$model->title), ['view', 'id' => $model->id]).'</p>';
         },
     ]) ?>
-
+<?php var_dump($model); ?>
 </div>

@@ -19,8 +19,10 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
+            'class' => 'yii\web\User',
+            'identityClass' => 'vova07\users\models\User',
+            'loginUrl' => ['/users/guest/login']  
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -40,6 +42,15 @@ $config = [
                     'levels' => ['error', 'warning'],
                 ],
             ],
+        ],
+        'authManager' => [
+            'class' => 'yii\rbac\PhpManager',
+            'defaultRoles' => [
+                'user',
+                'admin',
+                'superadmin'
+            ],
+            'authFile' => '@vova07/rbac/data/rbac.php'
         ],
         'db' => require(__DIR__ . '/db.php'),
     ],

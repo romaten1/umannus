@@ -19,7 +19,9 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-jui": "*",
         "yiisoft/yii2-swiftmailer": "*",
-        "kartik-v/yii2-icons": "dev-master"
+        "kartik-v/yii2-icons": "dev-master",
+        "vova07/yii2-users-module": "*",
+        "2amigos/yii2-tinymce-widget" : "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

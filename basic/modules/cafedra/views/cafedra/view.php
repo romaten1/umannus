@@ -2,12 +2,12 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-
+use app\modules\faculty\models\Faculty;
 /* @var $this yii\web\View */
 /* @var $model app\modules\cafedra\models\Cafedra */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Cafedras'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Кафедри'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cafedra-view">
@@ -18,12 +18,12 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php if (!\Yii::$app->user->isGuest) : 
 	    ?>
 	    <p>
-	        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+	        <?= Html::a(Yii::t('app', 'Оновити'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
 
-	        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
+	        <?= Html::a(Yii::t('app', 'Видалити'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                'confirm' => Yii::t('app', 'Ви впевнені, що хочете видалити цей запис?'),
                 'method' => 'post',
             ],
         ]) ?>
@@ -31,7 +31,11 @@ $this->params['breadcrumbs'][] = $this->title;
 	    <?php  endif;?>
 	</p>
 
-    
+    <p> 
+    <?php 
+        echo 'Факультет: '.Faculty::findOne($model->faculty_id)->title;
+    ?>
+    </p>
     <p> 
     <?php 
     	echo $model->description;
