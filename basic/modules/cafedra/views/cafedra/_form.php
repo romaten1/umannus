@@ -33,7 +33,7 @@ use dosamigos\tinymce\TinyMce;
 
     <?= $form->field($model, 'image_id')->textInput() ?>
 
-    <?= $form->field($model, 'active')->dropDownList(['0' => 'Неактивна', '1' => 'Активна'])  ?>
+    <?= $form->field($model, 'active')->dropDownList(['1' => 'Активна', '0' => 'Неактивна'])  ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Створити') : Yii::t('app', 'Оновити'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

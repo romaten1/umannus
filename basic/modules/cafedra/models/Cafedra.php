@@ -19,6 +19,9 @@ use Yii;
  */
 class Cafedra extends \yii\db\ActiveRecord
 {
+    const STATUS_INACTIVE = 0;
+    const STATUS_ACTIVE = 1;
+
     /**
      * @inheritdoc
      */
@@ -33,7 +36,7 @@ class Cafedra extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['faculty_id', 'title', 'title_en', 'description', 'image_id', 'active'], 'required'],
+            [['faculty_id', 'title', 'description', 'image_id', 'active'], 'required'],
             [['faculty_id', 'image_id', 'active', 'visited'], 'integer'],
             [['description'], 'string'],
             [['title', 'title_en'], 'string', 'max' => 255]

@@ -43,6 +43,17 @@ class CafedraController extends Controller
         ]);
     }
 
+    public function actionAdmin()
+    {
+        $searchModel = new CafedraSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('admin', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
     /**
      * Displays a single Cafedra model.
      * @param integer $id

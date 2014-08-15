@@ -41,6 +41,16 @@ class JobController extends Controller
         ]);
     }
 
+    public function actionAdmin()
+    {
+        $searchModel = new JobSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('admin', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
     /**
      * Displays a single Job model.
      * @param integer $id
@@ -100,7 +110,7 @@ class JobController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['admin']);
     }
 
     /**

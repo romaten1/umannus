@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\modules\job\models\JobSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Jobs');
+$this->title = Yii::t('app', 'Посади');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="job-index">
@@ -16,8 +16,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create {modelClass}', [
-    'modelClass' => 'Job',
+        <?= Html::a(Yii::t('app', 'Створити {modelClass}', [
+    'modelClass' => 'посаду',
 ]), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
@@ -26,13 +26,16 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
             'title',
-            'title_en',
-            'type',
-
+            [
+                'attribute' => 'type',
+                'format' => 'html',
+                'value' => function ($model) {
+                    return $model->type == '0' ? 'Навчальна' : 'Організаційна';},
+                'filter' => ['0' => 'Навчальна', '1' => 'Організаційна']
+            ],
             ['class' => 'yii\grid\ActionColumn'],
+
         ],
     ]); ?>
 

@@ -6,10 +6,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\modules\scienceStatus\models\ScienceStatus */
 
-$this->title = Yii::t('app', 'Create {modelClass}', [
+$this->title = Yii::t('app', 'Створити {modelClass}', [
     'modelClass' => 'Science Status',
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Science Statuses'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Наукові ступені'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="science-status-create">

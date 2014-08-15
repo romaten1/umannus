@@ -18,11 +18,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php if (!\Yii::$app->user->isGuest) : 
     ?>
     <p>
-        <?= Html::a(Yii::t('app', Icon::show('file', [], Icon::BSG).'Створити новий {modelClass}', [
+        <?= Html::a(Icon::show('file', [], Icon::BSG).Yii::t('app', 'Створити новий {modelClass}', [
             'modelClass' => 'предмет',
         ]), ['create'], ['class' => 'btn btn-success']) ?>
 
-        <?= Html::a(Yii::t('app', Icon::show('cog', [], Icon::BSG).'Управління {modelClass}', [
+        <?= Html::a(Icon::show('cog', [], Icon::BSG).Yii::t('app', 'Управління {modelClass}', [
             'modelClass' => 'предметами',
         ]), ['index'], ['class' => 'btn btn-primary']) ?>
     </p>

@@ -3,7 +3,7 @@
 namespace app\modules\scienceStatus\models;
 
 use Yii;
-
+use app\helpers\TransliterateHelper;
 /**
  * Це клас моделі для таблиці "tbl_science_status".
  *
@@ -11,7 +11,7 @@ use Yii;
  * @property string $title
  * @property string $title_en
  */
-class scienceStatus extends \yii\db\ActiveRecord
+class ScienceStatus extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
@@ -27,7 +27,7 @@ class scienceStatus extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'title_en'], 'required'],
+            [['title'], 'required'],
             [['title', 'title_en'], 'string', 'max' => 255]
         ];
     }
@@ -39,8 +39,16 @@ class scienceStatus extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'title' => Yii::t('app', 'Title'),
-            'title_en' => Yii::t('app', 'Title En'),
+            'title' => Yii::t('app', 'Назва'),
+            'title_en' => Yii::t('app', 'Назва англійською'),
         ];
+    }
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            $this->title_en =  TransliterateHelper::cyrillicToLatin($this->title);
+            return true;
+        }
+        return false;
     }
 }

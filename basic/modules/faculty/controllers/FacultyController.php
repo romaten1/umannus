@@ -40,7 +40,16 @@ class FacultyController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+    public function actionAdmin()
+    {
+        $searchModel = new FacultySearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+        return $this->render('admin', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
     /**
      * Displays a single Faculty model.
      * @param integer $id

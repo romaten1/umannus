@@ -41,6 +41,18 @@ class ScienceStatusController extends Controller
         ]);
     }
 
+    public function actionAdmin()
+    {
+        $searchModel = new ScienceStatusSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('admin', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+
     /**
      * Displays a single ScienceStatus model.
      * @param integer $id
@@ -65,7 +77,7 @@ class ScienceStatusController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            return $this->render('create', [
+            return $this->render('index', [
                 'model' => $model,
             ]);
         }
@@ -84,7 +96,7 @@ class ScienceStatusController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            return $this->render('update', [
+            return $this->render('index', [
                 'model' => $model,
             ]);
         }

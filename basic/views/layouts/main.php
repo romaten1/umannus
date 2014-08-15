@@ -63,6 +63,10 @@ AppAsset::register($this);
                     ['label' => 'Факультети', 'url' => ['/faculty']],
                     ['label' => 'Викладачі', 'url' => ['/prepod']],
                     ['label' => 'Предмети', 'url' => ['/subject']],
+                    !Yii::$app->user->isGuest ?
+                        ['label' => 'Посади', 'url' => ['/job']] : "",
+                    !Yii::$app->user->isGuest ?
+                        ['label' => 'Наукові ступені', 'url' => ['/scienceStatus']] : "",
                 ],
             ]);
             NavBar::end();

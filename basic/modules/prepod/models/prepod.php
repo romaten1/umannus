@@ -3,7 +3,9 @@
 namespace app\modules\prepod\models;
 
 use Yii;
-
+use app\helpers\TransliterateHelper;
+use app\modules\faculty\models\Faculty;
+use app\modules\cafedra\models\Cafedra;
 /**
  * Це клас моделі для таблиці "tbl_prepod".
  *
@@ -23,6 +25,7 @@ use Yii;
  */
 class prepod extends \yii\db\ActiveRecord
 {
+    
     /**
      * @inheritdoc
      */
@@ -31,13 +34,20 @@ class prepod extends \yii\db\ActiveRecord
         return '{{%prepod}}';
     }
 
+    public function getFaculty()
+    {
+        return Cafedra::findOne($this->cafedra_id)->faculty_id;
+    }
+    public function getFullName() {
+	    return $this->surname . ' ' .$this->name . ' ' . $this->second_name;
+	}
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['cafedra_id', 'name', 'second_name', 'surname', 'name_en', 'description', 'image_id', 'job_id', 'job_org_id', 'science_status_id'], 'required'],
+            [['cafedra_id', 'name', 'second_name', 'surname', 'description', 'image_id', 'job_id', 'job_org_id', 'science_status_id'], 'required'],
             [['cafedra_id', 'job_id', 'job_org_id', 'science_status_id', 'active', 'visited'], 'integer'],
             [['description'], 'string'],
             [['name', 'second_name', 'surname', 'name_en'], 'string', 'max' => 100],
@@ -52,18 +62,28 @@ class prepod extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'cafedra_id' => Yii::t('app', 'Cafedra ID'),
-            'name' => Yii::t('app', 'Name'),
-            'second_name' => Yii::t('app', 'Second Name'),
-            'surname' => Yii::t('app', 'Surname'),
-            'name_en' => Yii::t('app', 'Name En'),
-            'description' => Yii::t('app', 'Description'),
-            'image_id' => Yii::t('app', 'Image ID'),
-            'job_id' => Yii::t('app', 'Job ID'),
-            'job_org_id' => Yii::t('app', 'Job Org ID'),
-            'science_status_id' => Yii::t('app', 'Science Status ID'),
-            'active' => Yii::t('app', 'Active'),
-            'visited' => Yii::t('app', 'Visited'),
+            'cafedra_id' => Yii::t('app', 'Кафедра'),
+            'name' => Yii::t('app', 'Ім\'я'),
+            'second_name' => Yii::t('app', 'По-батькові'),
+            'surname' => Yii::t('app', 'Прізвище'),
+            'name_en' => Yii::t('app', 'Ім\'я англійською'),
+            'description' => Yii::t('app', 'Інформація'),
+            'image_id' => Yii::t('app', 'Малюнок'),
+            'job_id' => Yii::t('app', 'Посада'),
+            'job_org_id' => Yii::t('app', 'Організаційна посада'),
+            'science_status_id' => Yii::t('app', 'Науковий ступінь'),
+            'active' => Yii::t('app', 'Активний'),
+            'visited' => Yii::t('app', 'Відвідувань'),
+            'faculty' => Yii::t('app', 'Факультет'),
+            'fullName' => Yii::t('app', 'Повне ім\'я'),
         ];
+    }
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            $this->name_en =  TransliterateHelper::cyrillicToLatin($this->surname.$this->name);
+            return true;
+        }
+        return false;
     }
 }

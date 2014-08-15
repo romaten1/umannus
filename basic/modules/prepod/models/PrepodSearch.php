@@ -12,6 +12,7 @@ use app\modules\prepod\models\Prepod;
  */
 class PrepodSearch extends Prepod
 {
+    public $fullName;
     /**
      * @inheritdoc
      */
@@ -19,10 +20,11 @@ class PrepodSearch extends Prepod
     {
         return [
             [['id', 'cafedra_id', 'job_id', 'job_org_id', 'science_status_id', 'active', 'visited'], 'integer'],
-            [['name', 'second_name', 'surname', 'name_en', 'description', 'image_id'], 'safe'],
+            [['name', 'second_name', 'surname', 'name_en', 'description', 'image_id', 'fullName'], 'safe'],
         ];
     }
 
+    
     /**
      * @inheritdoc
      */
@@ -47,6 +49,24 @@ class PrepodSearch extends Prepod
             'query' => $query,
         ]);
 
+        $dataProvider->setSort([
+	        'attributes' => [
+	            'id',
+	            'cafedra_id',
+	            'job_id',
+	            'job_org_id',
+	            'science_status_id',
+	            'active',
+	            'fullName' => [
+	                'asc' => ['first_name' => SORT_ASC, 'last_name' => SORT_ASC],
+	                'desc' => ['first_name' => SORT_DESC, 'last_name' => SORT_DESC],
+	                'label' => 'Full Name',
+	                'default' => SORT_ASC
+	            ],
+	            
+	        ]
+	    ]);
+
         if (!($this->load($params) && $this->validate())) {
             return $dataProvider;
         }
@@ -59,6 +79,7 @@ class PrepodSearch extends Prepod
             'science_status_id' => $this->science_status_id,
             'active' => $this->active,
             'visited' => $this->visited,
+            
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
@@ -67,7 +88,9 @@ class PrepodSearch extends Prepod
             ->andFilterWhere(['like', 'name_en', $this->name_en])
             ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'image_id', $this->image_id]);
-
+        
+        
+    
         return $dataProvider;
     }
 }

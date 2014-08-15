@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\modules\scienceStatus\models\ScienceStatusSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Science Statuses');
+$this->title = Yii::t('app', 'Наукові ступені');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="science-status-index">
@@ -16,8 +16,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create {modelClass}', [
-    'modelClass' => 'Science Status',
+        <?= Html::a(Yii::t('app', 'Створити {modelClass}', [
+    'modelClass' => 'науковий ступінь',
 ]), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
@@ -26,11 +26,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'title',
-            'title_en',
-
+            [
+                'attribute' => 'title',
+                'format' => 'html',
+                'value' => function ($model) {
+                    return Html::a(Html::encode($model->title), ['view', 'id' => $model->id]);}
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

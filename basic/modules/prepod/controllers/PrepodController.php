@@ -8,7 +8,8 @@ use app\modules\prepod\models\PrepodSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use app\modules\faculty\models\Faculty;
+use app\modules\cafedra\models\Cafedra;
 /**
  * PrepodController implements the CRUD actions for Prepod model.
  */
@@ -36,6 +37,17 @@ class PrepodController extends Controller
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    public function actionAdmin()
+    {
+        $searchModel = new PrepodSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('admin', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -100,7 +112,7 @@ class PrepodController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['admin']);
     }
 
     /**

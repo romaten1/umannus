@@ -6,10 +6,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\modules\subject\models\Subject */
 
-$this->title = Yii::t('app', 'Create {modelClass}', [
-    'modelClass' => 'Subject',
+$this->title = Yii::t('app', 'Створити {modelClass}', [
+    'modelClass' => 'предмет',
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Subjects'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Предмети'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="subject-create">

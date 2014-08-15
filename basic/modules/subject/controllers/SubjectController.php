@@ -40,6 +40,16 @@ class SubjectController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+    public function actionAdmin()
+    {
+        $searchModel = new SubjectsSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('admin', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
 
     public function actionList()
     {
@@ -111,7 +121,7 @@ class SubjectController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['admin']);
     }
 
     /**

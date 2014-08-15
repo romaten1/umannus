@@ -29,10 +29,13 @@ return [
         ],
         'scienceStatus' => [
             'class' => 'app\modules\scienceStatus\Module',
-            'defaultRoute' => 'scienceStatus',
+            'defaultRoute' => 'science-status',
         ],
         'subject' => [
             'class' => 'app\modules\subject\Module',
             'defaultRoute' => 'subject',
+        ],
+        'comments' => [
+            'class' => 'app\modules\comments\Module',
         ],
     ];

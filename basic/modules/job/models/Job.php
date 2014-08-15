@@ -14,6 +14,8 @@ use Yii;
  */
 class Job extends \yii\db\ActiveRecord
 {
+    const STATUS_JOB_WORK = 0;
+    const STATUS_JOB_ORG = 1;
     /**
      * @inheritdoc
      */
@@ -41,9 +43,9 @@ class Job extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'title' => Yii::t('app', 'Title'),
-            'title_en' => Yii::t('app', 'Title En'),
-            'type' => Yii::t('app', 'Type'),
+            'title' => Yii::t('app', 'Назва'),
+            'title_en' => Yii::t('app', 'Назва англійською'),
+            'type' => Yii::t('app', 'Тип'),
         ];
     }
 }
