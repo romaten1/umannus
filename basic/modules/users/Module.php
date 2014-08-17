@@ -1,12 +1,10 @@
 <?php
 
-namespace app\modules\comments;
+namespace app\modules\users;
 
 class Module extends \yii\base\Module
 {
-    public $controllerNamespace = 'app\modules\comments\controllers';
-
-    public $maxLevel = 3;
+    public $controllerNamespace = 'app\modules\users\controllers';
 
     public function init()
     {

@@ -21,8 +21,8 @@ $config = [
         'user' => [
             'enableAutoLogin' => true,
             'class' => 'yii\web\User',
-            'identityClass' => 'vova07\users\models\User',
-            'loginUrl' => ['/users/guest/login']  
+            //'identityClass' => 'vova07\users\models\User',
+            //'loginUrl' => ['/users/guest/login']  
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',

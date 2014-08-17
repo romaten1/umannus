@@ -4,8 +4,95 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "18cc7200a98cd2794fdfc136a7662a1f",
+    "hash": "b5cdcc35877019cffc56199a4a58503c",
     "packages": [
+        {
+            "name": "2amigos/yii2-file-upload-widget",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/2amigos/yii2-file-upload-widget.git",
+                "reference": "e86896e680e658202b71fe638cc02667755e6b92"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/2amigos/yii2-file-upload-widget/zipball/e86896e680e658202b71fe638cc02667755e6b92",
+                "reference": "e86896e680e658202b71fe638cc02667755e6b92",
+                "shasum": ""
+            },
+            "require": {
+                "2amigos/yii2-gallery-widget": "0.1.*",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "dosamigos\\fileupload\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Antonio Ramirez",
+                    "email": "ramirez.cobos@gmail.com",
+                    "homepage": "http://2amigos.us"
+                }
+            ],
+            "description": "BlueImp jQuery File Upload Widget for Yii2.",
+            "keywords": [
+                "extension",
+                "upload",
+                "widget",
+                "yii"
+            ],
+            "time": "2014-07-25 10:39:43"
+        },
+        {
+            "name": "2amigos/yii2-gallery-widget",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/2amigos/yii2-gallery-widget.git",
+                "reference": "9a9808c26df93e5a07cdde88b27b55b3c27a9a51"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/2amigos/yii2-gallery-widget/zipball/9a9808c26df93e5a07cdde88b27b55b3c27a9a51",
+                "reference": "9a9808c26df93e5a07cdde88b27b55b3c27a9a51",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "dosamigos\\gallery\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Antonio Ramirez",
+                    "email": "ramirez.cobos@gmail.com",
+                    "homepage": "http://www.ramirezcobos.com"
+                }
+            ],
+            "description": "BlueImp Gallery Widget for Yii2.",
+            "keywords": [
+                "extension",
+                "gallery",
+                "widget",
+                "yii"
+            ],
+            "time": "2014-04-07 22:24:40"
+        },
         {
             "name": "2amigos/yii2-tinymce-widget",
             "version": "dev-master",
@@ -109,6 +196,60 @@
             "time": "2014-03-05 16:30:51"
         },
         {
+            "name": "dektrium/yii2-user",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dektrium/yii2-user.git",
+                "reference": "f25efb9e4c6d6c8bb012fdd93b38941829441670"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dektrium/yii2-user/zipball/f25efb9e4c6d6c8bb012fdd93b38941829441670",
+                "reference": "f25efb9e4c6d6c8bb012fdd93b38941829441670",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*",
+                "yiisoft/yii2-authclient": "*",
+                "yiisoft/yii2-swiftmailer": "*"
+            },
+            "require-dev": {
+                "codeception/specify": "*",
+                "codeception/verify": "*",
+                "guzzlehttp/guzzle": "~4.0",
+                "yiisoft/yii2-codeception": "*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "bootstrap": "dektrium\\user\\Bootstrap"
+            },
+            "autoload": {
+                "psr-4": {
+                    "dektrium\\user\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dmitry Erofeev",
+                    "email": "dmeroff@gmail.com",
+                    "homepage": "http://dmeroff.ru"
+                }
+            ],
+            "description": "Flexible user registration and authentication module for Yii2",
+            "keywords": [
+                "User management",
+                "dektrium",
+                "yii2",
+                "yii2-user"
+            ],
+            "time": "2014-07-27 09:46:56"
+        },
+        {
             "name": "ezyang/htmlpurifier",
             "version": "v4.6.0",
             "source": {
@@ -207,12 +348,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/bootstrap-fileinput.git",
-                "reference": "b7c304e96024981a3380aa2ece5cb43e2a7d9356"
+                "reference": "53eb7090bc07b366122a69f9414f8870c1a67afb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/b7c304e96024981a3380aa2ece5cb43e2a7d9356",
-                "reference": "b7c304e96024981a3380aa2ece5cb43e2a7d9356",
+                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/53eb7090bc07b366122a69f9414f8870c1a67afb",
+                "reference": "53eb7090bc07b366122a69f9414f8870c1a67afb",
                 "shasum": ""
             },
             "type": "library",
@@ -243,7 +384,7 @@
                 "preview",
                 "upload"
             ],
-            "time": "2014-08-13 00:13:51"
+            "time": "2014-08-14 03:54:11"
         },
         {
             "name": "kartik-v/bootstrap-star-rating",
@@ -432,12 +573,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-widgets.git",
-                "reference": "7ec97f82ac490cb035c45eb0919b5fbcb451f589"
+                "reference": "cf68db1301371e903b1c589a6a2e2e67c41a4ba5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-widgets/zipball/7ec97f82ac490cb035c45eb0919b5fbcb451f589",
-                "reference": "7ec97f82ac490cb035c45eb0919b5fbcb451f589",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widgets/zipball/cf68db1301371e903b1c589a6a2e2e67c41a4ba5",
+                "reference": "cf68db1301371e903b1c589a6a2e2e67c41a4ba5",
                 "shasum": ""
             },
             "require": {
@@ -472,7 +613,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2014-08-12 12:30:03"
+            "time": "2014-08-15 04:20:38"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -532,12 +673,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "a8437f0d2357368556368cbde1afecda4f0117f3"
+                "reference": "31f7cb152efbc22ea61801915d81ba2b13435f97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/a8437f0d2357368556368cbde1afecda4f0117f3",
-                "reference": "a8437f0d2357368556368cbde1afecda4f0117f3",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/31f7cb152efbc22ea61801915d81ba2b13435f97",
+                "reference": "31f7cb152efbc22ea61801915d81ba2b13435f97",
                 "shasum": ""
             },
             "replace": {
@@ -575,7 +716,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2014-08-08 19:23:55"
+            "time": "2014-08-15 18:52:50"
         },
         {
             "name": "vova07/yii2-control-widget",
@@ -773,12 +914,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "40923dfbadc16aff6527e08931a27ea8f1d09ee4"
+                "reference": "fd8282072b195feaa2429815eedaa9c5ffcae4fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/40923dfbadc16aff6527e08931a27ea8f1d09ee4",
-                "reference": "40923dfbadc16aff6527e08931a27ea8f1d09ee4",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/fd8282072b195feaa2429815eedaa9c5ffcae4fd",
+                "reference": "fd8282072b195feaa2429815eedaa9c5ffcae4fd",
                 "shasum": ""
             },
             "require": {
@@ -846,7 +987,50 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2014-08-13 02:48:41"
+            "time": "2014-08-17 02:30:28"
+        },
+        {
+            "name": "yiisoft/yii2-authclient",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/yii2-authclient.git",
+                "reference": "c1d1f85c23540f29db3542875d4aca9867928889"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/yii2-authclient/zipball/c1d1f85c23540f29db3542875d4aca9867928889",
+                "reference": "c1d1f85c23540f29db3542875d4aca9867928889",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "yii\\authclient\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Klimov",
+                    "email": "klimov.paul@gmail.com"
+                }
+            ],
+            "description": "External authentication via OAuth and OpenID for the Yii framework",
+            "keywords": [
+                "OpenId",
+                "auth",
+                "oauth",
+                "yii2"
+            ],
+            "time": "2014-07-29 22:40:46"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -1101,12 +1285,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-debug.git",
-                "reference": "bdb341073b9d9b8325ced6ade8fcb916906f0205"
+                "reference": "c5c82935d39e7c3fed560e6a7c9674216b9511c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/bdb341073b9d9b8325ced6ade8fcb916906f0205",
-                "reference": "bdb341073b9d9b8325ced6ade8fcb916906f0205",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/c5c82935d39e7c3fed560e6a7c9674216b9511c3",
+                "reference": "c5c82935d39e7c3fed560e6a7c9674216b9511c3",
                 "shasum": ""
             },
             "require": {
@@ -1135,7 +1319,7 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2014-07-29 22:40:46"
+            "time": "2014-08-16 01:18:37"
         },
         {
             "name": "yiisoft/yii2-gii",
@@ -1143,12 +1327,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-gii.git",
-                "reference": "8d8c2a11bef76c62e015f052c935a612e915c292"
+                "reference": "d4a3e2e5816d27414b8f556135f1a625dd42f315"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/8d8c2a11bef76c62e015f052c935a612e915c292",
-                "reference": "8d8c2a11bef76c62e015f052c935a612e915c292",
+                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/d4a3e2e5816d27414b8f556135f1a625dd42f315",
+                "reference": "d4a3e2e5816d27414b8f556135f1a625dd42f315",
                 "shasum": ""
             },
             "require": {
@@ -1178,7 +1362,7 @@
                 "gii",
                 "yii2"
             ],
-            "time": "2014-08-01 08:48:35"
+            "time": "2014-08-16 01:18:37"
         }
     ],
     "aliases": [],

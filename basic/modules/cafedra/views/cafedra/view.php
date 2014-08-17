@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use app\modules\faculty\models\Faculty;
+use app\modules\comments\widgets\comments\Comments;
 use kartik\icons\Icon;
 use app\components\widgets\prepods\PrepodsWidget;
 /* @var $this yii\web\View */
@@ -53,6 +54,12 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
     <div class="col-md-4"> 
         <?= PrepodsWidget::widget(['cafedra_id' => $model->id]) ?>
+    </div>
+    <div class="">
+        <?php echo Comments::widget([
+            'model' => $model,
+            'maxLevel' => Yii::$app->getModule('comments')->maxLevel
+        ]); ?>
     </div>
 </div>
 

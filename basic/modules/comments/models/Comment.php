@@ -1,5 +1,5 @@
 <?php
-namespace common\modules\comments\models;
+namespace app\modules\comments\models;
 
 use Yii;
 use yii\db\ActiveRecord;
@@ -7,10 +7,10 @@ use yii\data\ActiveDataProvider;
 use yii\data\ArrayDataProvider;
 use yii\helpers\HtmlPurifier;
 use yii\behaviors\TimestampBehavior;
-use common\behaviors\PurifierBehavior;
-use common\modules\blogs\models\Post;
-use common\modules\users\models\User;
-use common\modules\comments\models\query\CommentQuery;
+use app\behaviors\PurifierBehavior;
+use app\modules\cafedra\models\Cafedra;
+use app\modules\users\models\User;
+use app\modules\comments\models\query\CommentQuery;
 
 /**
  * Class Comment
@@ -93,9 +93,9 @@ class Comment extends ActiveRecord
 	public static function getStatusArray()
 	{
 		return [
-		    self::STATUS_DELETED => Yii::t('comments', 'Удалён'),
-		    self::STATUS_PUBLISHED => Yii::t('comments', 'Опубликован'),
-		    self::STATUS_BANNED => Yii::t('comments', 'Забанен'),
+		    self::STATUS_DELETED => Yii::t('app', 'Удалён'),
+		    self::STATUS_PUBLISHED => Yii::t('app', 'Опубликован'),
+		    self::STATUS_BANNED => Yii::t('app', 'Забанен'),
 		];
 	}
 
@@ -193,7 +193,7 @@ class Comment extends ActiveRecord
 			[['post_id', 'parent_id'], 'required', 'on' => 'admin-create'],
 
 			// ID поста [[post_id]]
-			['post_id', 'exist', 'targetClass' => Post::className(), 'targetAttribute' => 'id'],
+			//['post_id', 'exist', 'targetClass' => Post::className(), 'targetAttribute' => 'id'],
 
 			// ID родителя [[parent_id]]
 			['parent_id', 'exist', 'targetAttribute' => 'id']
@@ -220,14 +220,14 @@ class Comment extends ActiveRecord
 	public function attributeLabels()
 	{
 		return [
-		    'id' => Yii::t('comments', 'ID'),
-		    'parent_id' => Yii::t('comments', 'Родительский комментарий'),
-		    'author_id' => Yii::t('comments', 'Автор'),
-		    'post_id' => Yii::t('comments', 'Пост'),
-			'content' => Yii::t('comments', 'Комментарий'),
-			'status_id' => Yii::t('comments', 'Статус'),
-			'create_time' => Yii::t('comments', 'Дата создания'),
-			'update_time' => Yii::t('comments', 'Дата обновления'),
+		    'id' => Yii::t('app', 'ID'),
+		    'parent_id' => Yii::t('app', 'Родительский комментарий'),
+		    'author_id' => Yii::t('app', 'Автор'),
+		    'post_id' => Yii::t('app', 'Пост'),
+			'content' => Yii::t('app', 'Комментарий'),
+			'status_id' => Yii::t('app', 'Статус'),
+			'create_time' => Yii::t('app', 'Дата создания'),
+			'update_time' => Yii::t('app', 'Дата обновления'),
 		];
 	}
 
@@ -244,7 +244,7 @@ class Comment extends ActiveRecord
 	 */
 	public function getPost()
     {
-        return $this->hasOne(Post::className(), ['id' => 'post_id']);
+        return $this->hasOne(Cafedra::className(), ['id' => 'post_id']);
     }
 
     /**
@@ -275,12 +275,12 @@ class Comment extends ActiveRecord
 				// Удаляем комментарий
 				if ($this->scenario === 'delete') {
 					$this->status_id = self::STATUS_DELETED;
-					$this->content = Yii::t('comments', 'Комментарий был удалён его автором.');
+					$this->content = Yii::t('app', 'Комментарий был удалён его автором.');
 				}
 				// Блокируем комментарий
 				if ($this->scenario === 'admin-delete') {
 					$this->status_id = self::STATUS_BANNED;
-					$this->content = Yii::t('comments', 'Комментарий был удалён модератором.');
+					$this->content = Yii::t('app', 'Комментарий был удалён модератором.');
 				}
 			}
 			return true;

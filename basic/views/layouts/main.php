@@ -40,11 +40,13 @@ AppAsset::register($this);
                     ['label' => 'Контакти', 'url' => ['/site/contact']],
                     ['label' => 'Gii', 'url' => ['/gii']],
                     Yii::$app->user->isGuest ?
-                        ['label' => 'Sign Up', 'url' => ['/site/signup']] : "",
+                        ['label' => 'Реєстрація', 'url' => ['/user/registration/register']] : 
+                        ['label' => 'Профіль', 'url' => ['/user/settings/profile']] ,
+                        
                     Yii::$app->user->isGuest ?
-                        ['label' => 'Вхід', 'url' => ['/site/login']] :
+                        ['label' => 'Вхід', 'url' => ['/user/security/login']] :
                         ['label' => 'Вихід (' . Yii::$app->user->identity->username . ')',
-                            'url' => ['/site/logout'],
+                            'url' => ['/user/security/logout'],
                             'linkOptions' => ['data-method' => 'post']],
                 ],
             ]);

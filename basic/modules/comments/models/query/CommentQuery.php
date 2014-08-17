@@ -1,5 +1,5 @@
 <?php
-namespace common\modules\comments\models\query;
+namespace app\modules\comments\models\query;
 
 use yii\db\ActiveQuery;
 use common\modules\comments\models\Comment;
