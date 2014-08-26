@@ -65,6 +65,9 @@ AppAsset::register($this);
                     ['label' => 'Факультети', 'url' => ['/faculty']],
                     ['label' => 'Викладачі', 'url' => ['/prepod']],
                     ['label' => 'Предмети', 'url' => ['/subject']],
+                    ['label' => 'Файли', 'url' => ['/files']],
+                    !Yii::$app->user->isGuest ?
+                        ['label' => 'Типи файлів', 'url' => ['/files/file-type']] : "",
                     !Yii::$app->user->isGuest ?
                         ['label' => 'Посади', 'url' => ['/job']] : "",
                     !Yii::$app->user->isGuest ?

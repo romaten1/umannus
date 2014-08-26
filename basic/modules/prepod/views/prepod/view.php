@@ -15,25 +15,26 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Викладачі')
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="prepod-view">
-
+    <?= Html::img( '@umannus/uploads/prepods/multi/'.$model->image_id) ?>
+    
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
         <?php if (!\Yii::$app->user->isGuest) : 
-	    ?>
-	    <p>
-	        <?= Html::a(Icon::show('repeat', [], Icon::BSG).Yii::t('app', 'Оновити'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        ?>
+        <p>
+            <?= Html::a(Icon::show('repeat', [], Icon::BSG).Yii::t('app', 'Оновити'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
 
-	        <?= Html::a(Icon::show('remove', [], Icon::BSG).Yii::t('app', 'Видалити'), ['delete', 'id' => $model->id], [
+            <?= Html::a(Icon::show('remove', [], Icon::BSG).Yii::t('app', 'Видалити'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => Yii::t('app', 'Ви впевнені, що хочете видалити цей запис?'),
                 'method' => 'post',
-            ],
-        ]) ?>
-	    </p>
-	    <?php  endif;?>
-	</p>
+            ],  ]) ?>
+            <?= Html::a(Icon::show('file', [], Icon::BSG).Yii::t('app', 'Створити новий'), ['create'], ['class' => 'btn btn-success']) ?>
+        </p>
+        <?php  endif;?>
+    </p>
 	<p> 
     <?php 
         $faculty_id = Cafedra::findOne($model->cafedra_id)->faculty_id;

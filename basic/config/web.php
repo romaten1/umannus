@@ -2,6 +2,9 @@
 
 use app\components\Mygii;
 
+
+Yii::setAlias('umannus', 'http://umannus/basic');
+
 $params = require(__DIR__ . '/params.php');
 
 $config = [

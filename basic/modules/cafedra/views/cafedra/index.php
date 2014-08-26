@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ListView;
 use kartik\icons\Icon;
 use app\modules\faculty\models\Faculty;
-use dosamigos\fileupload\FileUploadUI;
+
 /* @var $this yii\web\View */
 /* @var $searchModel app\modules\cafedra\models\CafedraSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -48,20 +48,6 @@ $this->params['breadcrumbs'][] = $this->title;
             
         },
     ]) ?>
-
-    <?= FileUploadUI::widget([
-    'model' => $model,
-    'attribute' => 'image_id',
-    'url' => ['media/upload', 'id' => $tour_id],
-    'gallery' => true,
-    'fieldOptions' => [
-            'accept' => 'image/*'
-    ],
-    'clientOptions' => [
-            'maxFileSize' => 2000000
-    ]
-]);
-?>
 </div>
 
 

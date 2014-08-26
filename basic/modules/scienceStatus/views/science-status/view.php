@@ -22,13 +22,13 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= Html::a(Icon::show('repeat', [], Icon::BSG).Yii::t('app', 'Оновити'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
 
             <?= Html::a(Icon::show('remove', [], Icon::BSG).Yii::t('app', 'Видалити'), ['delete', 'id' => $model->id], [
-                'class' => 'btn btn-danger',
-                'data' => [
+            'class' => 'btn btn-danger',
+            'data' => [
                 'confirm' => Yii::t('app', 'Ви впевнені, що хочете видалити цей запис?'),
                 'method' => 'post',
-                ],
-                ]) ?>
-            </p>
+            ],  ]) ?>
+            <?= Html::a(Icon::show('file', [], Icon::BSG).Yii::t('app', 'Створити новий'), ['create'], ['class' => 'btn btn-success']) ?>
+        </p>
         <?php  endif;?>
     </p>
     </div>

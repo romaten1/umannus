@@ -6,7 +6,7 @@ use app\modules\faculty\models\Faculty;
 use app\modules\job\models\Job;
 use app\modules\cafedra\models\Cafedra;
 use app\modules\scienceStatus\models\ScienceStatus;
-
+use kartik\widgets\FileInput;
 use yii\helpers\ArrayHelper;
 use dosamigos\tinymce\TinyMce;
 /* @var $this yii\web\View */
@@ -16,7 +16,9 @@ use dosamigos\tinymce\TinyMce;
 
 <div class="prepod-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'options'=>['enctype'=>'multipart/form-data'] // important
+    ]); ?>
 
     <?= $form->field($model, 'cafedra_id')->dropDownList(ArrayHelper::map(Cafedra::find()->all(), 'id', 'title'))  ?>
 
@@ -39,7 +41,18 @@ use dosamigos\tinymce\TinyMce;
         ]
     ]);?>
 
-    <?= $form->field($model, 'image_id')->textInput(['maxlength' => 255]) ?>
+    <?= $form->field($model, 'image_id[]')->widget(FileInput::classname(), [
+        'options'=>['multiple'=>'true'],
+        'pluginOptions' => [
+            'showPreview' => true,
+            'showCaption' => true,
+            'showRemove' => true,
+            'showUpload' => true,
+            'browseLabel' => 'Відкриити',
+            'removeLabel' => 'Видалити',
+            'uploadLabel' => 'Завантажити',
+        ]
+    ]);?>
 
     <?= $form->field($model, 'job_id')->dropDownList(ArrayHelper::map(Job::find()->where(["type"=>Job::STATUS_JOB_WORK])->all(), 'id', 'title'))  ?>
 

@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php if (!\Yii::$app->user->isGuest) : 
         ?>
         <p>
-            <?= Html::a(Icon::show('cog', [], Icon::BSG).Yii::t('app', 'Створити {modelClass}', [
+            <?= Html::a(Icon::show('file', [], Icon::BSG).Yii::t('app', 'Створити {modelClass}', [
                 'modelClass' => 'викладача',
             ]), ['create'], ['class' => 'btn btn-success']) ?>
             <?= Html::a(Icon::show('cog', [], Icon::BSG).Yii::t('app', 'Редагувати дані про {modelClass}', [

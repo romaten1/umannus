@@ -45,4 +45,11 @@ return [
         'comments' => [
             'class' => 'app\modules\comments\Module',
         ],
+        'files' => [
+            'class' => 'app\modules\files\Module',
+            'defaultRoute' => 'files',
+        ],
+        'gridview' =>  [
+        'class' => '\kartik\grid\Module'
+    ]
     ];

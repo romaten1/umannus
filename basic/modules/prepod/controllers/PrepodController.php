@@ -10,11 +10,15 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\modules\faculty\models\Faculty;
 use app\modules\cafedra\models\Cafedra;
+//use yii\helpers\Security;
+use yii\web\UploadedFile;
+use \wapmorgan\UnifiedArchive\UnifiedArchive;
 /**
  * PrepodController implements the CRUD actions for Prepod model.
  */
 class PrepodController extends Controller
 {
+    
     public function behaviors()
     {
         return [
@@ -74,13 +78,47 @@ class PrepodController extends Controller
     {
         $model = new Prepod();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
+        if ($model->load(Yii::$app->request->post())) {
+            // get the uploaded file instance. for multiple file uploads
+            // the following data will return an array
+            $image_id = UploadedFile::getInstances($model, 'image_id');
+            var_dump($image_id);
+            // store the source file name
+            /*$zip = new ZipArchive(); // подгружаем библиотеку zip
+            $zip_name = '@umannus/uploads/prepods'.time().".zip"; // имя файла
+            if($zip->open($zip_name, ZIPARCHIVE::CREATE)!==TRUE)
+            {
+
+                $error .= "* Sorry ZIP creation failed at this time";
+            }*/
+            foreach ($image_id as $key => $value) {
+                $filename = $value->name;
+                $ext = end((explode(".", $value->name)));
+                // generate a unique file name
+                $model->image_id = Yii::$app->getSecurity()->generateRandomString().".{$ext}";
+               //echo $model->image_id.'<br />'; 
+                // the path to save file, you can set an uploadPath
+                // in Yii::$app->params (as used in example below)
+                $path = Yii::$app->basePath . '/uploads/prepods/multi/' .$model->image_id;
+                //echo $path.'<br />';
+                $value->saveAs($path);
+                //$zip->addFile($path);
+                 
+            }
+            //$zip->close(); 
+            if($model->save()){
+                    //$image_id->saveAs($path);
+                    UnifiedArchive::archiveNodes(Yii::$app->basePath . '/uploads/prepods/multi', Yii::$app->basePath . '/uploads/prepods/multi/Archive.zip');     
+                    return $this->redirect(['view', 'id'=>$model->id]);
+                } else {
+                throw new NotFoundHttpException('Booooooo');
+                }      
+        } 
+        return $this->render('create', [
                 'model' => $model,
             ]);
-        }
+
+        
     }
 
     /**

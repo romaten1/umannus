@@ -26,8 +26,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'data' => [
                 'confirm' => Yii::t('app', 'Ви впевнені, що хочете видалити цей запис?'),
                 'method' => 'post',
-            ],
-        ]) ?>
+            ],  ]) ?>
+            <?= Html::a(Icon::show('file', [], Icon::BSG).Yii::t('app', 'Створити новий'), ['create'], ['class' => 'btn btn-success']) ?>
         </p>
         <?php  endif;?>
     </p>

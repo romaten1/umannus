@@ -16,7 +16,7 @@ use app\modules\cafedra\models\Cafedra;
  * @property string $surname
  * @property string $name_en
  * @property string $description
- * @property string $image_id
+ * @property string $image
  * @property integer $job_id
  * @property integer $job_org_id
  * @property integer $science_status_id
@@ -51,7 +51,8 @@ class prepod extends \yii\db\ActiveRecord
             [['cafedra_id', 'job_id', 'job_org_id', 'science_status_id', 'active', 'visited'], 'integer'],
             [['description'], 'string'],
             [['name', 'second_name', 'surname', 'name_en'], 'string', 'max' => 100],
-            [['image_id'], 'string', 'max' => 255]
+            [['image_id'], 'safe'],
+            [['image_id'], 'file','extensions'=>'jpg, gif, png, bmp', 'maxFiles' => 3],
         ];
     }
 

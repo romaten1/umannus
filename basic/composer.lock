@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b5cdcc35877019cffc56199a4a58503c",
+    "hash": "a1e360deccb21ed9b12db448bd3806f0",
     "packages": [
         {
             "name": "2amigos/yii2-file-upload-widget",
@@ -201,12 +201,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dektrium/yii2-user.git",
-                "reference": "f25efb9e4c6d6c8bb012fdd93b38941829441670"
+                "reference": "08f579d740e7897310048927ab27df7bc8442300"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dektrium/yii2-user/zipball/f25efb9e4c6d6c8bb012fdd93b38941829441670",
-                "reference": "f25efb9e4c6d6c8bb012fdd93b38941829441670",
+                "url": "https://api.github.com/repos/dektrium/yii2-user/zipball/08f579d740e7897310048927ab27df7bc8442300",
+                "reference": "08f579d740e7897310048927ab27df7bc8442300",
                 "shasum": ""
             },
             "require": {
@@ -247,7 +247,7 @@
                 "yii2",
                 "yii2-user"
             ],
-            "time": "2014-07-27 09:46:56"
+            "time": "2014-08-17 18:39:40"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -343,17 +343,61 @@
             "time": "2014-05-14 20:37:30"
         },
         {
+            "name": "kartik-v/bootstrap-checkbox-x",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/bootstrap-checkbox-x.git",
+                "reference": "1c77f7d4b0663533ad6c6fe3f6fe4489c7703695"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/bootstrap-checkbox-x/zipball/1c77f7d4b0663533ad6c6fe3f6fe4489c7703695",
+                "reference": "1c77f7d4b0663533ad6c6fe3f6fe4489c7703695",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "kartik\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD 3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "An extended checkbox plugin for bootstrap with three states and additional styles.",
+            "homepage": "https://github.com/kartik-v/bootstrap-checkbox-x",
+            "keywords": [
+                "bootstrap",
+                "checkbox",
+                "indeterminate",
+                "jquery",
+                "null",
+                "state",
+                "three"
+            ],
+            "time": "2014-07-19 17:37:41"
+        },
+        {
             "name": "kartik-v/bootstrap-fileinput",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/bootstrap-fileinput.git",
-                "reference": "53eb7090bc07b366122a69f9414f8870c1a67afb"
+                "reference": "d2cd502b78acc49deca55c1d28b262f6b30d6ed3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/53eb7090bc07b366122a69f9414f8870c1a67afb",
-                "reference": "53eb7090bc07b366122a69f9414f8870c1a67afb",
+                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/d2cd502b78acc49deca55c1d28b262f6b30d6ed3",
+                "reference": "d2cd502b78acc49deca55c1d28b262f6b30d6ed3",
                 "shasum": ""
             },
             "type": "library",
@@ -384,7 +428,51 @@
                 "preview",
                 "upload"
             ],
-            "time": "2014-08-14 03:54:11"
+            "time": "2014-08-20 21:11:52"
+        },
+        {
+            "name": "kartik-v/bootstrap-popover-x",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/bootstrap-popover-x.git",
+                "reference": "ccaef7a4af7aaa5d563aa4b0138da57d1d00d65b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/bootstrap-popover-x/zipball/ccaef7a4af7aaa5d563aa4b0138da57d1d00d65b",
+                "reference": "ccaef7a4af7aaa5d563aa4b0138da57d1d00d65b",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "kartik\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD 3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Bootstrap Popover Extended - Popover with modal behavior, styling enhancements and more.",
+            "homepage": "https://github.com/kartik-v/bootstrap-popover-x",
+            "keywords": [
+                "bootstrap",
+                "extended",
+                "jquery",
+                "modal",
+                "modal-popover",
+                "popover",
+                "popover-x"
+            ],
+            "time": "2014-08-01 20:37:57"
         },
         {
             "name": "kartik-v/bootstrap-star-rating",
@@ -392,12 +480,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/bootstrap-star-rating.git",
-                "reference": "9edb05ed0b78e8b3dc59163680f362e4e2200e1b"
+                "reference": "3ef5ee7858c5f1d543405d361e417e90bc74522a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/bootstrap-star-rating/zipball/9edb05ed0b78e8b3dc59163680f362e4e2200e1b",
-                "reference": "9edb05ed0b78e8b3dc59163680f362e4e2200e1b",
+                "url": "https://api.github.com/repos/kartik-v/bootstrap-star-rating/zipball/3ef5ee7858c5f1d543405d361e417e90bc74522a",
+                "reference": "3ef5ee7858c5f1d543405d361e417e90bc74522a",
                 "shasum": ""
             },
             "type": "library",
@@ -425,7 +513,7 @@
                 "jquery",
                 "star"
             ],
-            "time": "2014-07-21 06:20:57"
+            "time": "2014-08-23 00:57:12"
         },
         {
             "name": "kartik-v/dependent-dropdown",
@@ -468,6 +556,102 @@
                 "select"
             ],
             "time": "2014-08-11 16:59:00"
+        },
+        {
+            "name": "kartik-v/yii2-checkbox-x",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-checkbox-x.git",
+                "reference": "e02790312c898ecee9a708e437dc5d6a3388f017"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-checkbox-x/zipball/e02790312c898ecee9a708e437dc5d6a3388f017",
+                "reference": "e02790312c898ecee9a708e437dc5d6a3388f017",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/bootstrap-checkbox-x": "*",
+                "kartik-v/yii2-widgets": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "kartik\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD 3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Extended checkbox widget for bootstrap with three states and additional styles.",
+            "homepage": "https://github.com/kartik-v/yii2-checkbox-x",
+            "keywords": [
+                "bootstrap",
+                "checkbox",
+                "indeterminate",
+                "jquery",
+                "null",
+                "state",
+                "three"
+            ],
+            "time": "2014-08-12 12:38:38"
+        },
+        {
+            "name": "kartik-v/yii2-editable",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-editable.git",
+                "reference": "d8c70b10ce6aa6ac447fca107ce11a595c6e98ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-editable/zipball/d8c70b10ce6aa6ac447fca107ce11a595c6e98ef",
+                "reference": "d8c70b10ce6aa6ac447fca107ce11a595c6e98ef",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-popover-x": "*",
+                "kartik-v/yii2-widgets": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "kartik\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD 3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "An enhanced editable widget for Yii 2.0 that allows easy editing of displayed data with numerous configuration possibilities.",
+            "homepage": "https://github.com/kartik-v/yii2-editable",
+            "keywords": [
+                "bootstrap",
+                "editable",
+                "input",
+                "jquery",
+                "popover",
+                "popover-x",
+                "widget"
+            ],
+            "time": "2014-08-23 14:08:41"
         },
         {
             "name": "kartik-v/yii2-field-range",
@@ -521,6 +705,54 @@
             "time": "2014-07-14 08:53:02"
         },
         {
+            "name": "kartik-v/yii2-grid",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-grid.git",
+                "reference": "0007ecaa34f0bd898fa8b16b7c0d0cc91c0d4ffa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-grid/zipball/0007ecaa34f0bd898fa8b16b7c0d0cc91c0d4ffa",
+                "reference": "0007ecaa34f0bd898fa8b16b7c0d0cc91c0d4ffa",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-checkbox-x": "*",
+                "kartik-v/yii2-editable": "*",
+                "kartik-v/yii2-money": "*",
+                "kartik-v/yii2-slider": "*",
+                "kartik-v/yii2-widgets": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "kartik\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD 3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Yii 2 GridView on steroids. Various enhancements and utilities for the Yii 2.0 GridView widget.",
+            "homepage": "https://github.com/kartik-v/yii2-grid",
+            "keywords": [
+                "extension",
+                "grid",
+                "widget",
+                "yii2"
+            ],
+            "time": "2014-08-22 22:54:01"
+        },
+        {
             "name": "kartik-v/yii2-icons",
             "version": "dev-master",
             "source": {
@@ -568,17 +800,162 @@
             "time": "2014-07-14 08:59:50"
         },
         {
+            "name": "kartik-v/yii2-money",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-money.git",
+                "reference": "75cdb5bb76a5d75421b77494e22cfbfdd5020962"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-money/zipball/75cdb5bb76a5d75421b77494e22cfbfdd5020962",
+                "reference": "75cdb5bb76a5d75421b77494e22cfbfdd5020962",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-widgets": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "kartik\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD 3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "An advanced money mask input for Yii 2.0 based on jquery maskmoney plugin styled for Bootstrap 3.",
+            "homepage": "https://github.com/kartik-v/yii2-money",
+            "keywords": [
+                "bootstrap",
+                "bootstrap 3",
+                "currency",
+                "extension",
+                "format",
+                "jquery",
+                "mask",
+                "money",
+                "widget",
+                "yii2"
+            ],
+            "time": "2014-08-12 12:42:24"
+        },
+        {
+            "name": "kartik-v/yii2-popover-x",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-popover-x.git",
+                "reference": "f6964ff6bd2a453a33bce3b0d0677022a18addab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-popover-x/zipball/f6964ff6bd2a453a33bce3b0d0677022a18addab",
+                "reference": "f6964ff6bd2a453a33bce3b0d0677022a18addab",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/bootstrap-popover-x": "*",
+                "kartik-v/yii2-widgets": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "kartik\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD 3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "An extended bootstrap 3.0 popover widget which combines both the bootstrap popover and modal features and includes various new styling enhancements.",
+            "homepage": "https://github.com/kartik-v/yii2-popover-x",
+            "keywords": [
+                "bootstrap",
+                "extended",
+                "jquery",
+                "modal",
+                "modal-popover",
+                "popover",
+                "popover-x"
+            ],
+            "time": "2014-07-16 18:09:07"
+        },
+        {
+            "name": "kartik-v/yii2-slider",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-slider.git",
+                "reference": "a960aa2c5e53526f2d0467e6aee61594ec730c00"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-slider/zipball/a960aa2c5e53526f2d0467e6aee61594ec730c00",
+                "reference": "a960aa2c5e53526f2d0467e6aee61594ec730c00",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-widgets": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "kartik\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD 3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "An advanced slider input for Yii Framework 2 for both touch enabled and desktop devices based on bootstrap-slider.",
+            "homepage": "https://github.com/kartik-v/yii2-slider",
+            "keywords": [
+                "bootstrap",
+                "bootstrap 3",
+                "extension",
+                "range",
+                "slider",
+                "widget",
+                "yii2"
+            ],
+            "time": "2014-07-14 14:57:26"
+        },
+        {
             "name": "kartik-v/yii2-widgets",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-widgets.git",
-                "reference": "cf68db1301371e903b1c589a6a2e2e67c41a4ba5"
+                "reference": "487119ad0ae31148b409cd091fc33dccd4a6470b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-widgets/zipball/cf68db1301371e903b1c589a6a2e2e67c41a4ba5",
-                "reference": "cf68db1301371e903b1c589a6a2e2e67c41a4ba5",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widgets/zipball/487119ad0ae31148b409cd091fc33dccd4a6470b",
+                "reference": "487119ad0ae31148b409cd091fc33dccd4a6470b",
                 "shasum": ""
             },
             "require": {
@@ -613,7 +990,125 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2014-08-15 04:20:38"
+            "time": "2014-08-26 03:36:23"
+        },
+        {
+            "name": "pear/archive_tar",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pear/Archive_Tar.git",
+                "reference": "1a5bf4d16c849bb10d6ead329a0de5d95472b2d1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pear/Archive_Tar/zipball/1a5bf4d16c849bb10d6ead329a0de5d95472b2d1",
+                "reference": "1a5bf4d16c849bb10d6ead329a0de5d95472b2d1",
+                "shasum": ""
+            },
+            "require": {
+                "pear/pear_exception": "1.0-beta1",
+                "php": ">=4.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "suggest": {
+                "ext-bz2": "bz2 compression support.",
+                "ext-xz": "lzma2 compression support.",
+                "ext-zlib": "Gzip compression support."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Archive_Tar": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "./"
+            ],
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Vincent Blavet",
+                    "email": "vincent@phpconcept.net"
+                },
+                {
+                    "name": "Greg Beaver",
+                    "email": "greg@chiaraquartet.net"
+                },
+                {
+                    "name": "Michiel Rook",
+                    "email": "mrook@php.net"
+                }
+            ],
+            "description": "Tar file management class",
+            "homepage": "https://github.com/pear/Archive_Tar",
+            "keywords": [
+                "archive",
+                "tar"
+            ],
+            "time": "2014-08-04 13:18:20"
+        },
+        {
+            "name": "pear/pear_exception",
+            "version": "1.0-beta1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pear/PEAR_Exception.git",
+                "reference": "f053615c7cbdfaba5a3b7021ee58a48523b8576c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pear/PEAR_Exception/zipball/f053615c7cbdfaba5a3b7021ee58a48523b8576c",
+                "reference": "f053615c7cbdfaba5a3b7021ee58a48523b8576c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=4.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "class",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "PEAR": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "."
+            ],
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Helgi Thormar",
+                    "email": "dufuz@php.net",
+                    "role": "Lead"
+                },
+                {
+                    "name": "Greg Beaver",
+                    "email": "cellog@php.net",
+                    "role": "Helper"
+                }
+            ],
+            "description": "The PEAR Exception base class.",
+            "homepage": "https://github.com/pear/PEAR_Exception",
+            "keywords": [
+                "exception"
+            ],
+            "time": "2014-02-21 17:29:07"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -673,12 +1168,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "31f7cb152efbc22ea61801915d81ba2b13435f97"
+                "reference": "1517bea4e272935a31fdc0caaa9a924bb8346ca3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/31f7cb152efbc22ea61801915d81ba2b13435f97",
-                "reference": "31f7cb152efbc22ea61801915d81ba2b13435f97",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/1517bea4e272935a31fdc0caaa9a924bb8346ca3",
+                "reference": "1517bea4e272935a31fdc0caaa9a924bb8346ca3",
                 "shasum": ""
             },
             "replace": {
@@ -716,7 +1211,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2014-08-15 18:52:50"
+            "time": "2014-08-25 00:18:58"
         },
         {
             "name": "vova07/yii2-control-widget",
@@ -860,6 +1355,67 @@
             "time": "2014-08-04 19:20:47"
         },
         {
+            "name": "wapmorgan/unified-archive",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wapmorgan/UnifiedArchive.git",
+                "reference": "cc0aa5ea9e7b38521e82f6b03c22b0d2aa6c7442"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wapmorgan/UnifiedArchive/zipball/cc0aa5ea9e7b38521e82f6b03c22b0d2aa6c7442",
+                "reference": "cc0aa5ea9e7b38521e82f6b03c22b0d2aa6c7442",
+                "shasum": ""
+            },
+            "require": {
+                "pear/archive_tar": "dev-master",
+                "php": ">=5.3.0"
+            },
+            "suggest": {
+                "ext-bz2": "Allows unpack tar archives with bz2 compression.",
+                "ext-rar": "Allows unpack RAR archives.",
+                "ext-xz": "Allows unpack tar archives with lzma2 compression.",
+                "ext-zip": "Allows unpack ZIP archives.",
+                "ext-zlib": "Allows unpack GZ files and tar archives with gzip compression.",
+                "ncompress": "Allows unpack tar archives with LZW compression.",
+                "phpclasses/php-iso-file": "Allows unpack iso-9660 images."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "wapmorgan\\UnifiedArchive\\": "src/"
+                },
+                "files": [
+                    "src/function.gzip_stat.php",
+                    "src/REGISTER_LZW_STREAM_WRAPPER.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "wapmorgan",
+                    "email": "wapmorgan@gmail.com",
+                    "role": "developer"
+                }
+            ],
+            "description": "UnifiedArchive - unified interface to archive (zip, rar, gz, tar, tar.gz, tar.bz2, tar.x, tar.Z, iso-9660) for listing, reading, extracting and creation + built-in console packer and unpacker + fully implemented PclZip-like interface (create, listContent, extract, properties, add, delete, merge, duplicate).",
+            "keywords": [
+                "archive",
+                "gzip",
+                "iso-9660",
+                "lzma2",
+                "ncompress",
+                "rar",
+                "tar",
+                "zip"
+            ],
+            "time": "2014-05-27 14:03:13"
+        },
+        {
             "name": "yiisoft/jquery",
             "version": "2.1.1",
             "source": {
@@ -914,12 +1470,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "fd8282072b195feaa2429815eedaa9c5ffcae4fd"
+                "reference": "89c788813f46770109430fbf803d8cbaeb12ec1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/fd8282072b195feaa2429815eedaa9c5ffcae4fd",
-                "reference": "fd8282072b195feaa2429815eedaa9c5ffcae4fd",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/89c788813f46770109430fbf803d8cbaeb12ec1e",
+                "reference": "89c788813f46770109430fbf803d8cbaeb12ec1e",
                 "shasum": ""
             },
             "require": {
@@ -987,7 +1543,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2014-08-17 02:30:28"
+            "time": "2014-08-25 22:32:25"
         },
         {
             "name": "yiisoft/yii2-authclient",
@@ -1245,12 +1801,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-codeception.git",
-                "reference": "b20673b381a6f3c3180ec8b6f1ba11e3572a6938"
+                "reference": "05833719fc2cc14d6914e7c080267b067009b26e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-codeception/zipball/b20673b381a6f3c3180ec8b6f1ba11e3572a6938",
-                "reference": "b20673b381a6f3c3180ec8b6f1ba11e3572a6938",
+                "url": "https://api.github.com/repos/yiisoft/yii2-codeception/zipball/05833719fc2cc14d6914e7c080267b067009b26e",
+                "reference": "05833719fc2cc14d6914e7c080267b067009b26e",
                 "shasum": ""
             },
             "require": {
@@ -1277,7 +1833,7 @@
                 "codeception",
                 "yii2"
             ],
-            "time": "2014-07-29 22:40:46"
+            "time": "2014-08-24 10:14:35"
         },
         {
             "name": "yiisoft/yii2-debug",
@@ -1285,12 +1841,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-debug.git",
-                "reference": "c5c82935d39e7c3fed560e6a7c9674216b9511c3"
+                "reference": "44be179347e9725005bd98983ef3de2529dddcad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/c5c82935d39e7c3fed560e6a7c9674216b9511c3",
-                "reference": "c5c82935d39e7c3fed560e6a7c9674216b9511c3",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/44be179347e9725005bd98983ef3de2529dddcad",
+                "reference": "44be179347e9725005bd98983ef3de2529dddcad",
                 "shasum": ""
             },
             "require": {
@@ -1319,7 +1875,7 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2014-08-16 01:18:37"
+            "time": "2014-08-25 22:20:59"
         },
         {
             "name": "yiisoft/yii2-gii",
@@ -1368,7 +1924,9 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "kartik-v/yii2-icons": 20
+        "kartik-v/yii2-icons": 20,
+        "kartik-v/yii2-widgets": 20,
+        "wapmorgan/unified-archive": 20
     },
     "prefer-stable": false,
     "platform": {
