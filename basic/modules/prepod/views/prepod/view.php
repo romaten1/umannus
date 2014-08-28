@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Викладачі')
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="prepod-view">
-    <?= Html::img( '@umannus/uploads/prepods/multi/'.$model->image_id) ?>
+    <?= Html::img( '@umannus/uploads/prepods/'.$model->image_id) ?>
     
     <h1><?= Html::encode($this->title) ?></h1>
 

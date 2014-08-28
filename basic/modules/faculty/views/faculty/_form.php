@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\tinymce\TinyMce;
+use kartik\widgets\FileInput;
 /* @var $this yii\web\View */
 /* @var $model app\modules\faculty\models\Faculty */
 /* @var $form yii\widgets\ActiveForm */
@@ -10,7 +11,9 @@ use dosamigos\tinymce\TinyMce;
 
 <div class="faculty-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'options'=>['enctype'=>'multipart/form-data'] // important
+    ]); ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => 255]) ?>
 
@@ -24,6 +27,19 @@ use dosamigos\tinymce\TinyMce;
                 "insertdatetime media table contextmenu paste"
             ],
             'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+        ]
+    ]);?>
+    <?php 
+        echo $model->image_id ? Html::img($model->Imageurl) : '';
+    ?>
+    <?= $form->field($model, 'image_id')->widget(FileInput::classname(), [
+        'options'=>['accept' => 'image/*'],
+        'pluginOptions' => [
+            'showPreview' => true,
+            'showCaption' => true,
+            'showRemove' => true,
+            'browseLabel' => 'Відкрити',
+            'removeLabel' => 'Видалити',
         ]
     ]);?>
 

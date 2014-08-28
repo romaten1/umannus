@@ -3,6 +3,13 @@
 use yii\helpers\Html;
 //use yii\grid\GridView;
 use kartik\grid\GridView;
+use app\modules\files\models\FileType;
+use kartik\icons\Icon;
+use yii\helpers\ArrayHelper;
+use app\helpers\FileHelper;
+use app\modules\subject\models\Subject;
+use dektrium\user\models\User;
+use yii\widgets\ListView;
 /* @var $this yii\web\View */
 /* @var $searchModel app\modules\files\models\FilesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -16,90 +23,34 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Створити {modelClass}', [
-    'modelClass' => 'файли',
-]), ['create'], ['class' => 'btn btn-success']) ?>
+        <?php if (!\Yii::$app->user->isGuest) : 
+        ?>
+        <p>
+            <?= Html::a(Icon::show('file', [], Icon::BSG).Yii::t('app', 'Створити {modelClass}', [
+                'modelClass' => 'файли',
+            ]), ['create'], ['class' => 'btn btn-success']) ?>
+            <?= Html::a(Icon::show('cog', [], Icon::BSG).Yii::t('app', 'Редагувати {modelClass}', [
+                'modelClass' => 'файли',
+            ]), ['admin'], ['class' => 'btn btn-primary']) ?>
+        </p>
+        <?php  endif;?>
     </p>
-
-    <? /* GridView::widget([
+    <?= ListView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'title',
-            'description:ntext',
-            'type',
-            'title_arkhive',
-            // 'content:ntext',
-            // 'path',
-            // 'subject',
-            // 'author_id',
-            // 'status',
-            // 'size',
-            // 'url:url',
-            // 'created_at',
-            // 'updated_at',
-
-            ['class' => 'yii\grid\ActionColumn'],
+        'layout' => '{items}{pager}',
+        'itemOptions' => ['class' => 'item'],
+        'options' => [
+            'links' => '<h2>test</h2>',
+            'tag' => 'ul',
+            'class' => 'ten-vertical summary-list',
         ],
-    ]);*/
-
-    echo GridView::widget([
-    'dataProvider' => $dataProvider,
-    'filterModel' => $searchModel,
-    'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'title',
-            'description:ntext',
-            'type',
-            'title_arkhive',
-            // 'content:ntext',
-            // 'path',
-            // 'subject',
-            // 'author_id',
-            // 'status',
-            // 'size',
-            // 'url:url',
-            // 'created_at',
-            // 'updated_at',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    'containerOptions' => ['style'=>'overflow: auto'], // only set when $responsive = false
-    'pjax' => true, // pjax is set to always true for this demo
-    'beforeHeader'=>[
-        [
-            'columns'=>[
-                ['content'=>'Header Before 1', 'options'=>['colspan'=>4, 'class'=>'text-center warning']], 
-                ['content'=>'Header Before 2', 'options'=>['colspan'=>4, 'class'=>'text-center warning']], 
-                ['content'=>'Header Before 3', 'options'=>['colspan'=>3, 'class'=>'text-center warning']], 
-            ],
-            'options'=>['class'=>'skip-export'] // remove this row from export
-        ]
-    ],
-    'toolbar' =>  Html::button('<i class="glyphicon glyphicon-plus"> ' . 
-        Yii::t('app', 'Add Book'), ['type'=>'button', 'class'=>'btn btn-success']) . ' ' .
-        Html::a('<i class="glyphicon glyphicon-repeat"> ' . 
-        Yii::t('app', 'Reset Grid'), ['grid-demo'], ['data-pjax'=>false, 'class' => 'btn btn-info']),
-        
-    // parameters from the demo form
-    'bordered' => true,
-    'striped' => true,
-    'condensed' => true,
-    'responsive' => true,
-    'hover' => true,
-    //'floatHeader' => true,
-    //'floatHeaderOptions' => ['scrollingTop' => $scrollingTop],
-    'showPageSummary' => true,
-    'panel' => true,
-    //'exportConfig' => $exportConfig,
-]);
-
-
-
-
-     ?>
+        'itemView' => function ($model, $key, $index, $widget) {
+            $result = '<p>'.Html::a(Html::encode($model->title), ['view', 'id' => $model->id]);
+            $result .= ' :: '. Html::encode(FileType::findOne($model->type)->title) .'</p>';
+            return $result;
+            
+        },
+    ]) ?>
+    
 
 </div>

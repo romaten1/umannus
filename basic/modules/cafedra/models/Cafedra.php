@@ -36,10 +36,12 @@ class Cafedra extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['faculty_id', 'title', 'description', 'image_id', 'active'], 'required'],
-            [['faculty_id', 'image_id', 'active', 'visited'], 'integer'],
+            [['faculty_id', 'title', 'description', 'active'], 'required'],
+            [['faculty_id',  'active', 'visited'], 'integer'],
             [['description'], 'string'],
-            [['title', 'title_en'], 'string', 'max' => 255]
+            [['title', 'title_en'], 'string', 'max' => 255],
+            [['image_id'], 'safe'],
+            [['image_id'], 'file','extensions'=>'jpg, gif, png, bmp'],
         ];
     }
 
@@ -54,7 +56,7 @@ class Cafedra extends \yii\db\ActiveRecord
             'title' => Yii::t('app', 'Назва'),
             'title_en' => Yii::t('app', 'Назва англійською'),
             'description' => Yii::t('app', 'Коротка інформація'),
-            'image_id' => Yii::t('app', 'ID малюнку'),
+            'image_id' => Yii::t('app', 'Герб'),
             'active' => Yii::t('app', 'Активна'),
             'visited' => Yii::t('app', 'Відвідувань'),
         ];
@@ -67,4 +69,9 @@ class Cafedra extends \yii\db\ActiveRecord
         }
         return false;
     }
+    
+    public function getImageurl()
+	{
+		return '@umannus/uploads/cafedra/'.$this->image_id;
+	}
 }

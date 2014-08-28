@@ -13,6 +13,7 @@ use app\modules\cafedra\models\Cafedra;
 //use yii\helpers\Security;
 use yii\web\UploadedFile;
 use \wapmorgan\UnifiedArchive\UnifiedArchive;
+use yii\helpers\VarDumper;
 /**
  * PrepodController implements the CRUD actions for Prepod model.
  */
@@ -22,12 +23,12 @@ class PrepodController extends Controller
     public function behaviors()
     {
         return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
+        'verbs' => [
+        'class' => VerbFilter::className(),
+        'actions' => [
+        'delete' => ['post'],
+        ],
+        ],
         ];
     }
 
@@ -43,7 +44,7 @@ class PrepodController extends Controller
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-        ]);
+            ]);
     }
 
     public function actionAdmin()
@@ -54,7 +55,7 @@ class PrepodController extends Controller
         return $this->render('admin', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-        ]);
+            ]);
     }
 
     /**
@@ -66,7 +67,7 @@ class PrepodController extends Controller
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
-        ]);
+            ]);
     }
 
     /**
@@ -79,45 +80,27 @@ class PrepodController extends Controller
         $model = new Prepod();
 
         if ($model->load(Yii::$app->request->post())) {
-            // get the uploaded file instance. for multiple file uploads
-            // the following data will return an array
-            $image_id = UploadedFile::getInstances($model, 'image_id');
-            var_dump($image_id);
-            // store the source file name
-            /*$zip = new ZipArchive(); // подгружаем библиотеку zip
-            $zip_name = '@umannus/uploads/prepods'.time().".zip"; // имя файла
-            if($zip->open($zip_name, ZIPARCHIVE::CREATE)!==TRUE)
-            {
-
-                $error .= "* Sorry ZIP creation failed at this time";
-            }*/
-            foreach ($image_id as $key => $value) {
-                $filename = $value->name;
-                $ext = end((explode(".", $value->name)));
-                // generate a unique file name
-                $model->image_id = Yii::$app->getSecurity()->generateRandomString().".{$ext}";
-               //echo $model->image_id.'<br />'; 
-                // the path to save file, you can set an uploadPath
-                // in Yii::$app->params (as used in example below)
-                $path = Yii::$app->basePath . '/uploads/prepods/multi/' .$model->image_id;
-                //echo $path.'<br />';
-                $value->saveAs($path);
-                //$zip->addFile($path);
-                 
-            }
-            //$zip->close(); 
+            // Получаем массив данных по загружамых файлах
+            $image_id = UploadedFile::getInstance($model, 'image_id');
+            $filename = $image_id->name;
+            $ext = end((explode(".", $image_id->name)));
+            // Генерируем уникальное имя файла
+            $model->image_id = Yii::$app->getSecurity()->generateRandomString(). '.' .$ext;
+            // Путь к папке где будет хранится файл
+            $path = Yii::$app->basePath . '/uploads/prepods/' . $model->image_id;
+            
             if($model->save()){
-                    //$image_id->saveAs($path);
-                    UnifiedArchive::archiveNodes(Yii::$app->basePath . '/uploads/prepods/multi', Yii::$app->basePath . '/uploads/prepods/multi/Archive.zip');     
-                    return $this->redirect(['view', 'id'=>$model->id]);
-                } else {
-                throw new NotFoundHttpException('Booooooo');
-                }      
-        } 
-        return $this->render('create', [
+                    // Сохраняем рисунок
+                $image_id->saveAs($path);
+                return $this->redirect(['view', 'id'=>$model->id]);
+            } else {
+                throw new NotFoundHttpException('Не удалось загрузить данные');
+            }      
+        } else {
+            return $this->render('create', [
                 'model' => $model,
-            ]);
-
+                ]);
+        }
         
     }
 
@@ -130,14 +113,37 @@ class PrepodController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
+        // Сохраняем название существующего рисунка
+        $old_image = $model->image_id; 
+        if ($model->load(Yii::$app->request->post())) {
+            // Получаем массив данных по загружамых файлах
+            $image_id = UploadedFile::getInstance($model, 'image_id');
+            // Если в форме ввели новый рисунок
+            if(!empty($image_id)) {
+                $filename = $image_id->name;
+                $ext = end((explode(".", $image_id->name)));
+                // generate a unique file name
+                $model->image_id = Yii::$app->getSecurity()->generateRandomString(). '.' .$ext;
+                $path = Yii::$app->basePath . '/uploads/prepods/' . $model->image_id;
+            }
+            else $model->image_id = $old_image; 
+            if($model->save()){
+                if(!empty($image_id)) {
+                        // Сохраняем новый рисунок и удаляем старый
+                    $image_id->saveAs($path);
+                    $old_path = Yii::$app->basePath . '/uploads/prepods/' . $old_image;
+                    if(!empty($old_image)) {
+                        unlink($old_path);
+                    }
+                }
+                return $this->redirect(['view', 'id'=>$model->id]);
+            } else {
+                throw new NotFoundHttpException('Booooooo');
+            }      
+        } 
+        return $this->render('update', [
+            'model' => $model,
             ]);
-        }
     }
 
     /**

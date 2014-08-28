@@ -69,6 +69,8 @@ AppAsset::register($this);
                     !Yii::$app->user->isGuest ?
                         ['label' => 'Типи файлів', 'url' => ['/files/file-type']] : "",
                     !Yii::$app->user->isGuest ?
+                        ['label' => 'Користувачі', 'url' => ['/user/admin']] : "",
+                    !Yii::$app->user->isGuest ?
                         ['label' => 'Посади', 'url' => ['/job']] : "",
                     !Yii::$app->user->isGuest ?
                         ['label' => 'Наукові ступені', 'url' => ['/scienceStatus']] : "",

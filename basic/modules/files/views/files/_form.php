@@ -41,10 +41,8 @@ use kartik\widgets\FileInput;
             'showPreview' => true,
             'showCaption' => true,
             'showRemove' => true,
-            'showUpload' => true,
             'browseLabel' => 'Відкрити',
             'removeLabel' => 'Видалити',
-            'uploadLabel' => 'Завантажити',
         ]
     ]);?>
 

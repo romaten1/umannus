@@ -47,12 +47,12 @@ class prepod extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['cafedra_id', 'name', 'second_name', 'surname', 'description', 'image_id', 'job_id', 'job_org_id', 'science_status_id'], 'required'],
+            [['cafedra_id', 'name', 'second_name', 'surname', 'description', 'job_id', 'job_org_id', 'science_status_id'], 'required'],
             [['cafedra_id', 'job_id', 'job_org_id', 'science_status_id', 'active', 'visited'], 'integer'],
             [['description'], 'string'],
             [['name', 'second_name', 'surname', 'name_en'], 'string', 'max' => 100],
             [['image_id'], 'safe'],
-            [['image_id'], 'file','extensions'=>'jpg, gif, png, bmp', 'maxFiles' => 3],
+            [['image_id'], 'file','extensions'=>'jpg, gif, png, bmp'],
         ];
     }
 
@@ -69,7 +69,7 @@ class prepod extends \yii\db\ActiveRecord
             'surname' => Yii::t('app', 'Прізвище'),
             'name_en' => Yii::t('app', 'Ім\'я англійською'),
             'description' => Yii::t('app', 'Інформація'),
-            'image_id' => Yii::t('app', 'Малюнок'),
+            'image_id' => Yii::t('app', 'Фото'),
             'job_id' => Yii::t('app', 'Посада'),
             'job_org_id' => Yii::t('app', 'Організаційна посада'),
             'science_status_id' => Yii::t('app', 'Науковий ступінь'),
@@ -87,4 +87,8 @@ class prepod extends \yii\db\ActiveRecord
         }
         return false;
     }
+    public function getImageurl()
+	{
+		return '@umannus/uploads/prepods/'.$this->image_id;
+	}
 }

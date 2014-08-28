@@ -17,6 +17,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="col-md-8">
         <div class="cafedra-view">
             <h1><?= Html::encode('Кафедра '.$this->title) ?></h1>
+            <p> 
+            <?php 
+                echo Html::img($model->Imageurl);
+            ?>
+            </p>
             <p>
 		        <?php if (!\Yii::$app->user->isGuest) : 
 		        ?>

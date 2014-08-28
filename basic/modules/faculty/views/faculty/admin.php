@@ -38,6 +38,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function ($model) {
                     return substr($model->description,0,1000).'...';},
             ],
+            [
+                'attribute' => 'image_id',
+                'format' => 'image',
+                'value' => function ($model) {
+                    return $model->Imageurl;}
+            ],
             'visited',
 
             ['class' => 'yii\grid\ActionColumn'],

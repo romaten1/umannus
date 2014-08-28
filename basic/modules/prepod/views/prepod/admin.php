@@ -36,7 +36,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'html',
                 'value' => function ($model) {
                     return Html::a(Html::encode($model->surname.' '.$model->name.' '.$model->second_name), ['view', 'id' => $model->id]);}
-            ], 
+            ],
+            [
+                'attribute' => 'image_id',
+                'format' => 'image',
+                'value' => function ($model) {
+                    return $model->Imageurl;}
+            ],
             [
                 'attribute' => 'cafedra_id',
                 'format' => 'html',

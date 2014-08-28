@@ -40,17 +40,17 @@ use dosamigos\tinymce\TinyMce;
             'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
         ]
     ]);?>
-
-    <?= $form->field($model, 'image_id[]')->widget(FileInput::classname(), [
-        'options'=>['multiple'=>'true'],
+    <?php 
+        echo $model->image_id ? Html::img($model->Imageurl) : '';
+    ?>
+    <?= $form->field($model, 'image_id')->widget(FileInput::classname(), [
+        'options'=>['accept' => 'image/*'],
         'pluginOptions' => [
             'showPreview' => true,
             'showCaption' => true,
             'showRemove' => true,
-            'showUpload' => true,
             'browseLabel' => 'Відкриити',
             'removeLabel' => 'Видалити',
-            'uploadLabel' => 'Завантажити',
         ]
     ]);?>
 

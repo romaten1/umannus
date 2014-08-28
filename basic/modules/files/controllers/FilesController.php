@@ -12,6 +12,7 @@ use \wapmorgan\UnifiedArchive\UnifiedArchive;
 use yii\web\UploadedFile;
 use app\modules\files\models\FileType;
 use app\helpers\TransliterateHelper;
+use yii\helpers\FileHelper;
 /**
  * FilesController implements the CRUD actions for Files model.
  */
@@ -44,6 +45,17 @@ class FilesController extends Controller
             ]);
     }
 
+    public function actionAdmin()
+    {
+        $searchModel = new FilesSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('admin', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+            ]);
+    }
+
     /**
      * Displays a single Files model.
      * @param integer $id
@@ -65,7 +77,7 @@ class FilesController extends Controller
     {
         $model = new Files();
         if ($model->load(Yii::$app->request->post())) {
-            // var_dump(Yii::$app->request->post());
+            
             // Получаем массив данных по загружамых файлах
             $title_arkhive = UploadedFile::getInstances($model, 'title_arkhive');
             // Папка с названием типа фалов (Курсовая, диплом и т.д.)
@@ -74,12 +86,14 @@ class FilesController extends Controller
             $directory = Yii::$app->getSecurity()->generateRandomString();
             //Путь к папке, в корторой сохраняются файлы, Создаем эту папку
             $directory_path = Yii::$app->basePath . '/uploads/files/'. $type_directory . '/' . $directory;
-            mkdir($directory_path);
+            //Создаем папку проверяя ее существование и возможность создания
+            if(!file_exists($directory_path))
+			        if(!mkdir($directory_path, 0777, true))
+			            throw new CHttpException(404,'Directory create error!');
             //Название архива который создается равно названию папки, в которой сохраняются загружаемые файлы
             $model->title_arkhive = $directory .'.zip';
             //Путь к архиву
             $model->path = Yii::$app->basePath . '/uploads/files/'. $type_directory . '/arkhivs/' . $model->title_arkhive; 
-            
             foreach ($title_arkhive as $key => $value) {
                 //Получаем первую часть - имя файла
                 // TODO  А если в имени есть точки??
@@ -171,13 +185,13 @@ class FilesController extends Controller
                             //Для вычисления и заполнения поля $model->size снова исполяем $model->save
                     $model->size = filesize($model->path);  
                     if($model->save()){
-                            $del_dir = $old_path;
-                            if ($objs = glob($del_dir."/*")) {
-                               foreach($objs as $obj) {
-                                 is_dir($obj) ? removeDirectory($obj) : unlink($obj);
-                               }
-                            }
-                            rmdir($dir);
+                            //Удаление старой папки и архива
+        					$old_filename = reset((explode(".", $old_title_arkhive)));
+                            $removePath = str_replace('/arkhivs/'.$old_title_arkhive, "", $old_path);
+                            $removePath = $removePath . '/' . $old_filename;
+							//echo $removePath;
+                            unlink($old_path);
+                            FileHelper::removeDirectory($removePath);
                           
                         return $this->redirect(['view', 'id'=>$model->id]);
 
@@ -191,7 +205,7 @@ class FilesController extends Controller
             }      
         
 
-        return $this->render('create', [
+        return $this->render('update', [
             'model' => $model,
             ]);
 
@@ -216,7 +230,7 @@ class FilesController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['admin']);
     }
 
     /**

@@ -17,7 +17,11 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="faculty-view">
 
             <h1><?= 'Факультет '.Html::encode($this->title) ?></h1>
-
+            <p> 
+            <?php 
+                echo Html::img( '@umannus/uploads/faculty/'.$model->image_id);
+            ?>
+            </p>
             <p>
 		        <?php if (!\Yii::$app->user->isGuest) : 
 		        ?>

@@ -36,7 +36,9 @@ class Faculty extends \yii\db\ActiveRecord
             [['title', 'description'], 'required'],
             [['description'], 'string'],
             [['visited'], 'integer'],
-            [['title', 'title_en'], 'string', 'max' => 255]
+            [['title', 'title_en'], 'string', 'max' => 255],
+            [['image_id'], 'safe'],
+            [['image_id'], 'file','extensions'=>'jpg, gif, png, bmp'],
         ];
     }
 
@@ -51,6 +53,7 @@ class Faculty extends \yii\db\ActiveRecord
             'title_en' => Yii::t('app', 'Назва англійською'),
             'description' => Yii::t('app', 'Опис'),
             'visited' => Yii::t('app', 'Відвідувань'),
+            'image_id' => Yii::t('app', 'Герб'),
         ];
     }
    
@@ -65,4 +68,8 @@ class Faculty extends \yii\db\ActiveRecord
         }
         return false;
     }
+    public function getImageurl()
+	{
+		return '@umannus/uploads/faculty/'.$this->image_id;
+	}
 }

@@ -41,7 +41,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'class' => 'ten-vertical summary-list',
         ],
         'itemView' => function ($model, $key, $index, $widget) {
-            $result = '<p>'.Html::a(Html::encode('Факультет '.$model->title), ['view', 'id' => $model->id]);
+            $result = '<p>'.
+            	($model->image_id ? Html::img($model->Imageurl) : Yii::$app->params['defaults']['image']['faculty']) .
+            	Html::a(Html::encode('Факультет '.$model->title), ['view', 'id' => $model->id]);
             return $result;
             
         },
