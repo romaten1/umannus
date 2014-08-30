@@ -13,6 +13,15 @@ $config = [
     'bootstrap' => ['log'],
     'modules' => require(__DIR__ . '/modules.php'),
     'components' => [
+    	'imageHandler' => [
+                'class' => 'app\components\imageHandler\ImageHandler',
+                //'thumb_width' => 100,
+                //'thumb_height' => 100,
+        ],
+        'image' => [
+                'class' => 'yii\image\ImageDriver',
+                'driver' => 'GD',  //GD or Imagick
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '5NYlWLcrBDZuGMLtjswCh1V185EksN_3',

@@ -14,6 +14,7 @@ use app\modules\cafedra\models\Cafedra;
 use yii\web\UploadedFile;
 use \wapmorgan\UnifiedArchive\UnifiedArchive;
 use yii\helpers\VarDumper;
+use app\components\imageHandler\ImageHandler;
 /**
  * PrepodController implements the CRUD actions for Prepod model.
  */
@@ -78,22 +79,13 @@ class PrepodController extends Controller
     public function actionCreate()
     {
         $model = new Prepod();
-
         if ($model->load(Yii::$app->request->post())) {
-            // Получаем массив данных по загружамых файлах
-            $image_id = UploadedFile::getInstance($model, 'image_id');
-            $filename = $image_id->name;
-            $ext = end((explode(".", $image_id->name)));
-            // Генерируем уникальное имя файла
-            $model->image_id = Yii::$app->getSecurity()->generateRandomString(). '.' .$ext;
-            // Путь к папке где будет хранится файл
-            $path = Yii::$app->basePath . '/uploads/prepods/' . $model->image_id;
-            
-            if($model->save()){
-                    // Сохраняем рисунок
-                $image_id->saveAs($path);
+            $image = new imageHandler();
+            if($image->createImage($model, 'prepods'))
+            {
                 return $this->redirect(['view', 'id'=>$model->id]);
-            } else {
+            } 
+            else {
                 throw new NotFoundHttpException('Не удалось загрузить данные');
             }      
         } else {
@@ -101,7 +93,6 @@ class PrepodController extends Controller
                 'model' => $model,
                 ]);
         }
-        
     }
 
     /**
@@ -113,38 +104,21 @@ class PrepodController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        // Сохраняем название существующего рисунка
         $old_image = $model->image_id; 
         if ($model->load(Yii::$app->request->post())) {
-            // Получаем массив данных по загружамых файлах
-            $image_id = UploadedFile::getInstance($model, 'image_id');
-            // Если в форме ввели новый рисунок
-            if(!empty($image_id)) {
-                $filename = $image_id->name;
-                $ext = end((explode(".", $image_id->name)));
-                // generate a unique file name
-                $model->image_id = Yii::$app->getSecurity()->generateRandomString(). '.' .$ext;
-                $path = Yii::$app->basePath . '/uploads/prepods/' . $model->image_id;
-            }
-            else $model->image_id = $old_image; 
-            if($model->save()){
-                if(!empty($image_id)) {
-                        // Сохраняем новый рисунок и удаляем старый
-                    $image_id->saveAs($path);
-                    $old_path = Yii::$app->basePath . '/uploads/prepods/' . $old_image;
-                    if(!empty($old_image)) {
-                        unlink($old_path);
-                    }
-                }
+            $image = new imageHandler();
+            if($image->updateImage($model, 'prepods', $old_image))
+            {
                 return $this->redirect(['view', 'id'=>$model->id]);
-            } else {
-                throw new NotFoundHttpException('Booooooo');
+            }  else {
+                throw new NotFoundHttpException('Не удалось загрузить данные');
             }      
         } 
         return $this->render('update', [
             'model' => $model,
             ]);
     }
+
 
     /**
      * Deletes an existing Prepod model.

@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'image_id',
                 'format' => 'image',
                 'value' => function ($model) {
-                    return $model->Imageurl;}
+                    return $model->ImageThumbsUrl;}
             ],
             [
                 'attribute' => 'faculty_id',

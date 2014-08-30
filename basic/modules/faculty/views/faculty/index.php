@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
         'itemView' => function ($model, $key, $index, $widget) {
             $result = '<p>'.
-            	($model->image_id ? Html::img($model->Imageurl) : Yii::$app->params['defaults']['image']['faculty']) .
+            	($model->image_id ? Html::img($model->ImageThumbsUrl) : Yii::$app->params['defaults']['image']['faculty']) .
             	Html::a(Html::encode('Факультет '.$model->title), ['view', 'id' => $model->id]);
             return $result;
             

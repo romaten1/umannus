@@ -9,6 +9,9 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+use yii\imagine\Image;
+use app\helpers\TransliterateHelper;
+use app\components\imageHandler\ImageHandler;
 /**
  * CafedraController implements the CRUD actions for Cafedra model.
  */
@@ -75,20 +78,12 @@ class CafedraController extends Controller
     {
         $model = new Cafedra();
 		if ($model->load(Yii::$app->request->post())) {
-            // Получаем массив данных по загружамых файлах
-            $image_id = UploadedFile::getInstance($model, 'image_id');
-            $filename = $image_id->name;
-            $ext = end((explode(".", $image_id->name)));
-            // Генерируем уникальное имя файла
-            $model->image_id = Yii::$app->getSecurity()->generateRandomString(). '.' .$ext;
-            // Путь к папке где будет хранится файл
-            $path = Yii::$app->basePath . '/uploads/cafedra/' . $model->image_id;
-            
-            if($model->save()){
-                    // Сохраняем рисунок
-                $image_id->saveAs($path);
-                return $this->redirect(['view', 'id'=>$model->id]);
-            } else {
+            $image = new imageHandler();
+            if($image->createImage($model, 'cafedra'))
+            {
+            	return $this->redirect(['view', 'id'=>$model->id]);
+            } 
+            else {
                 throw new NotFoundHttpException('Не удалось загрузить данные');
             }      
         } else {
@@ -109,29 +104,12 @@ class CafedraController extends Controller
         $model = $this->findModel($id);
 		$old_image = $model->image_id; 
         if ($model->load(Yii::$app->request->post())) {
-            // Получаем массив данных по загружамых файлах
-            $image_id = UploadedFile::getInstance($model, 'image_id');
-            // Если в форме ввели новый рисунок
-            if(!empty($image_id)) {
-                $filename = $image_id->name;
-                $ext = end((explode(".", $image_id->name)));
-                // generate a unique file name
-                $model->image_id = Yii::$app->getSecurity()->generateRandomString(). '.' .$ext;
-                $path = Yii::$app->basePath . '/uploads/cafedra/' . $model->image_id;
-            }
-            else $model->image_id = $old_image; 
-            if($model->save()){
-                if(!empty($image_id)) {
-                    // Сохраняем новый рисунок и удаляем старый
-                    $image_id->saveAs($path);
-                    $old_path = Yii::$app->basePath . '/uploads/cafedra/' . $old_image;
-                    if(!empty($old_image)) {
-                    	unlink($old_path);
-                    }
-                }
-                return $this->redirect(['view', 'id'=>$model->id]);
-            } else {
-                throw new NotFoundHttpException('Booooooo');
+            $image = new imageHandler();
+            if($image->updateImage($model, 'cafedra', $old_image))
+            {
+            	return $this->redirect(['view', 'id'=>$model->id]);
+            }  else {
+                throw new NotFoundHttpException('Не удалось загрузить данные');
             }      
         } 
         return $this->render('update', [

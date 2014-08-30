@@ -72,4 +72,8 @@ class Faculty extends \yii\db\ActiveRecord
 	{
 		return '@umannus/uploads/faculty/'.$this->image_id;
 	}
+    public function getImageThumbsUrl()
+    {
+        return '@umannus/uploads/faculty/thumbs/thumb_'.$this->image_id;
+    }
 }

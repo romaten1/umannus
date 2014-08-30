@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'class' => 'ten-vertical summary-list',
         ],
         'itemView' => function ($model, $key, $index, $widget) {
-            $result = '<p>'. ($model->image_id ? Html::img($model->Imageurl) : Yii::$app->params['defaults']['image']['prepod']);
+            $result = '<p>'. ($model->image_id ? Html::img($model->ImageThumbsUrl) : Yii::$app->params['defaults']['image']['prepods']) ;
             $result .= Html::a(Html::encode($model->surname.' '.$model->name.' '.$model->second_name), ['view', 'id' => $model->id]);
             $result .= ' :: '.Html::a(Html::encode('Кафедра '.Cafedra::findOne($model->cafedra_id)->title), ['view', 'id' => $model->cafedra_id]).'</p>';
             return $result;

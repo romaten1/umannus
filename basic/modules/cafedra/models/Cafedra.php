@@ -2,7 +2,7 @@
 
 namespace app\modules\cafedra\models;
 
-use app\helpers\TransliterateHelper;
+
 use Yii;
 
 /**
@@ -41,7 +41,7 @@ class Cafedra extends \yii\db\ActiveRecord
             [['description'], 'string'],
             [['title', 'title_en'], 'string', 'max' => 255],
             [['image_id'], 'safe'],
-            [['image_id'], 'file','extensions'=>'jpg, gif, png, bmp'],
+            [['image_id'], 'file','extensions'=>'jpg, gif, png'],
         ];
     }
 
@@ -61,17 +61,22 @@ class Cafedra extends \yii\db\ActiveRecord
             'visited' => Yii::t('app', 'Відвідувань'),
         ];
     }
-    public function beforeSave($insert)
+    /*public function beforeSave($insert)
+    // исполняется в контроллере
     {
         if (parent::beforeSave($insert)) {
             $this->title_en =  TransliterateHelper::cyrillicToLatin($this->title);
             return true;
         }
         return false;
-    }
+    }*/
     
     public function getImageurl()
 	{
 		return '@umannus/uploads/cafedra/'.$this->image_id;
+	}
+	public function getImageThumbsUrl()
+	{
+		return '@umannus/uploads/cafedra/thumbs/thumb_'.$this->image_id;
 	}
 }

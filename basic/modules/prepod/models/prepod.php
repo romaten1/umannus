@@ -91,4 +91,8 @@ class prepod extends \yii\db\ActiveRecord
 	{
 		return '@umannus/uploads/prepods/'.$this->image_id;
 	}
+    public function getImageThumbsUrl()
+    {
+        return '@umannus/uploads/prepods/thumbs/thumb_'.$this->image_id;
+    }
 }

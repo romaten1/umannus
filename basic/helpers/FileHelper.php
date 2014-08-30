@@ -1,6 +1,7 @@
 <?php
 namespace app\helpers;
 
+
 /**
  * Данный класс позволяет переводить строку с крилицы на латынь.
  */
@@ -25,4 +26,5 @@ class FileHelper
 		        return round($size / $tb, 2).' Тб'; 
 		    } 
 		}	
+		
 }
